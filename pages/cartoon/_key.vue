@@ -16,7 +16,7 @@ export default {
   },
   head() {
     return {
-      title: `${this.exchange.title} | 7toons`,
+      title: `${this.exchange.title} | title`,
       meta: [
         {
           hid: 'description',
@@ -46,7 +46,7 @@ export default {
         {
           hid: 'og:title',
           name: 'og:title',
-          content: `${this.exchange.title} | 7toons`
+          content: `${this.exchange.title} | og:title`
         },
         {
           hid: 'og:description',

@@ -35,7 +35,7 @@ export default {
         {
           hid: 'twitter:description',
           name: 'twitter:description',
-          content: `${this.exchange.title} | twitter:description`
+          content: `${this.exchange.title} test222`
         },
         {
           hid: 'og:title',
@@ -45,7 +45,7 @@ export default {
         {
           hid: 'og:description',
           name: 'og:description',
-          content: `${this.exchange.title} og:description`
+          content: `${this.exchange.title} test111`
         },
       ]
     }

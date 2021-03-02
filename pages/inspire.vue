@@ -24,37 +24,37 @@ export default {
   },
   head() {
     return {
-      title: `inspire | test`,
+      title: `aaaaaaaaaaaaaaa`,
       meta: [
         {
           hid: 'description',
           name: 'description',
-          content: `description - inspire`
+          content: `ssssssssssssss`
         },
         {
           hid: 'twitter:card',
           name: 'twitter:card',
-          content: `Crypto Ticker - inspire`
+          content: `ddddddddddddddddddd`
         },
         {
           hid: 'twitter:title',
           name: 'twitter:title',
-          content: `Crypto Ticker - inspire`
+          content: `fffffffffffffffffffff`
         },
         {
           hid: 'twitter:description',
           name: 'twitter:description',
-          content: `description - inspire`
+          content: `gggggggggggggggggggggggg`
         },
         {
           hid: 'og:title',
           name: 'og:title',
-          content: `Crypto Ticker - inspire`
+          content: `hhhhhhhhhhhhhhhhhhh`
         },
         {
           hid: 'og:description',
           name: 'og:description',
-          content: `description - inspire`
+          content: `jjjjjjjjjjjjjjjjjjjj`
         }
       ]
     }

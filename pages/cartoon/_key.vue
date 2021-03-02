@@ -9,6 +9,7 @@ export default {
   async asyncData({ params, $axios }) {
     console.log('params', params)
     const { data } = await $axios.get(`/cartoon/CT` + params.key)
+    console.log(data.thumbnail)
     return {
       exchange: data
     }

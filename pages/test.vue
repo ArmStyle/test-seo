@@ -1,9 +1,8 @@
 <template>
   <v-row>
     <v-col class="text-center">
-      <v-text-field v-model="text"></v-text-field>
-      <nuxt-link :to="`/cartoon/${text}`">cartoon</nuxt-link>
-      <nuxt-link :to="`/test`">to test</nuxt-link>
+      test
+      <nuxt-link :to="`/cartoon/1613749319`">totest</nuxt-link>
       <img src="/v.png" alt="Vuetify.js" class="mb-5" />
       <blockquote class="blockquote">
         &#8220;First, solve the problem. Then, write the code.&#8221;
@@ -18,11 +17,6 @@
 </template>
 <script>
 export default {
-  data() {
-    return {
-      text: '1613749319'
-    }
-  },
   head() {
     return {
       title: `aaaaaaaaaaaaaaa`,

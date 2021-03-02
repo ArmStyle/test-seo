@@ -4,6 +4,7 @@
       <v-text-field v-model="text"></v-text-field>
       <nuxt-link :to="`/cartoon/${text}`">cartoon</nuxt-link>
       <nuxt-link :to="`/test`">to test</nuxt-link>
+      <nuxt-link :to="`/test2`">to test2</nuxt-link>
       <img src="/v.png" alt="Vuetify.js" class="mb-5" />
       <blockquote class="blockquote">
         &#8220;First, solve the problem. Then, write the code.&#8221;

@@ -56,12 +56,14 @@ export default {
     cacheTime: 1000 * 60 * 15,
     gzip: true,
     generate: false,
-    routes: ["/", "/inspire", "/test", "/cartoon/1613749319"].map(route => ({
-      url: route,
-      changefreq: "monthly",
-      priority: 1,
-      lastmodISO: new Date().toISOString().split("T")[0]
-    }))
+    routes: ["/", "/inspire", "/test", "/test2", "/cartoon/1613749319"].map(
+      route => ({
+        url: route,
+        changefreq: "monthly",
+        priority: 1,
+        lastmodISO: new Date().toISOString().split("T")[0]
+      })
+    )
   },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios

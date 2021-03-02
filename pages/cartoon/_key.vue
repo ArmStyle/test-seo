@@ -1,6 +1,6 @@
 <template>
   <v-row>
-    <v-col class="text-center">{{ exchange.title}}</v-col>
+    <v-col class="text-center">{{ exchange.title}} test</v-col>
   </v-row>
 </template>
 

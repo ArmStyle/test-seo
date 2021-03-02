@@ -38,6 +38,11 @@ export default {
           content: this.exchange.status
         },
         {
+          hid: 'twitter:image',
+          name: 'twitter:image',
+          content: this.exchange.thumbnail
+        },
+        {
           hid: 'og:title',
           name: 'og:title',
           content: `Crypto Ticker - ${this.exchange.title}`
@@ -46,6 +51,11 @@ export default {
           hid: 'og:description',
           name: 'og:description',
           content: this.exchange.status
+        },
+        {
+          hid: 'og:image',
+          property: 'og:image',
+          content: this.exchange.thumbnail
         }
       ]
     }

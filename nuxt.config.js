@@ -10,45 +10,6 @@ export default {
         hid: "viewport",
         name: "viewport",
         content: "width=device-width, initial-scale=1"
-      },
-      {
-        hid: "twitter:card",
-        name: "twitter:card",
-        content: "Cryptocurrency Compare Tool | 2amigOS"
-      },
-      { hid: "twitter:site", name: "twitter:site", content: "@2amtech" },
-      { hid: "twitter:creator", name: "twitter:creator", content: "@2amtech" },
-      {
-        hid: "twitter:title",
-        name: "twitter:title",
-        content: "Crypto Ticker - A cryptocurrency comparison tool"
-      },
-      {
-        hid: "twitter:description",
-        name: "twitter:description",
-        content: "twitter:description"
-      },
-      {
-        hid: "twitter:image",
-        name: "twitter:image",
-        content: "/crypto-ticker-snapshot"
-      },
-      { hid: "description", name: "description", content: "description" },
-      {
-        hid: "og:image",
-        property: "og:image",
-        content: "/crypto-ticker-snapshot.png"
-      },
-      {
-        hid: "og:site_name",
-        name: "og:site_name",
-        content: "2amigOS Crypto Ticker"
-      },
-      { hid: "og:title", name: "og:title", content: "Crypto Ticker" },
-      {
-        hid: "og:description",
-        name: "og:description",
-        content: "og:description"
       }
     ],
     link: [

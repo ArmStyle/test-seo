@@ -16,27 +16,27 @@ export default {
   },
   head() {
     return {
-      title: `${this.exchange.title} | test`,
+      title: `${this.exchange.title} | 7toons`,
       meta: [
         {
           hid: 'description',
           name: 'description',
-          content: this.exchange.status
+          content: `description`
         },
         {
           hid: 'twitter:card',
           name: 'twitter:card',
-          content: `Crypto Ticker - ${this.exchange.title}`
+          content: `${this.exchange.title} | 7toons`
         },
         {
           hid: 'twitter:title',
           name: 'twitter:title',
-          content: `Crypto Ticker - ${this.exchange.title}`
+          content: `${this.exchange.title} | 7toons`
         },
         {
           hid: 'twitter:description',
           name: 'twitter:description',
-          content: this.exchange.status
+          content: `description`
         },
         {
           hid: 'twitter:image',
@@ -46,12 +46,12 @@ export default {
         {
           hid: 'og:title',
           name: 'og:title',
-          content: `Crypto Ticker - ${this.exchange.title}`
+          content: `${this.exchange.title} | 7toons`
         },
         {
           hid: 'og:description',
           name: 'og:description',
-          content: this.exchange.status
+          content: `description`
         },
         {
           hid: 'og:image',

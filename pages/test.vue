@@ -19,37 +19,37 @@
 export default {
   head() {
     return {
-      title: `aaaaaaaaaaaaaaa`,
+      title: `test`,
       meta: [
         {
           hid: 'description',
           name: 'description',
-          content: `ssssssssssssss`
+          content: `test description`
         },
         {
           hid: 'twitter:card',
           name: 'twitter:card',
-          content: `ddddddddddddddddddd`
+          content: `test twitter`
         },
         {
           hid: 'twitter:title',
           name: 'twitter:title',
-          content: `fffffffffffffffffffff`
+          content: `test twitter`
         },
         {
           hid: 'twitter:description',
           name: 'twitter:description',
-          content: `gggggggggggggggggggggggg`
+          content: `test twitter description`
         },
         {
           hid: 'og:title',
           name: 'og:title',
-          content: `hhhhhhhhhhhhhhhhhhh`
+          content: `test og`
         },
         {
           hid: 'og:description',
           name: 'og:description',
-          content: `jjjjjjjjjjjjjjjjjjjj`
+          content: `test og description`
         }
       ]
     }

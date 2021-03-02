@@ -51,8 +51,8 @@ export default {
     dev: false
   },
   sitemap: {
-    // path: "/cryptoticker.cc.xml",
-    // hostname: "https://cryptoticker.cc",
+    path: "/sitemap.xml",
+    hostname: "https://tested-seo.herokuapp.com/",
     cacheTime: 1000 * 60 * 15,
     gzip: true,
     generate: false,
@@ -62,13 +62,25 @@ export default {
       "/test",
       "/test2",
       "/test3",
-      "/cartoon/1613749319"
+      "/cartoon/1613749319",
+      "/user/:id"
     ].map(route => ({
       url: route,
       changefreq: "monthly",
       priority: 1,
       lastmodISO: new Date().toISOString().split("T")[0]
     }))
+    // sitemaps: [
+    //   {
+    //     path: "/user/:id",
+    //     exclude: [],
+    //     routes: async () => {
+    //       let apiUrl = "https://jsonplaceholder.typicode.com/todos/"; // or API url
+    //       const { data } = await axios.get(`${apiUrl}`);
+    //       return data.data.map(v => `/${v.id}`);
+    //     }
+    //   }
+    // ]
   },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios

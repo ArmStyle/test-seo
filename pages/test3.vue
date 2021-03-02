@@ -7,7 +7,8 @@
 <script>
 export default {
   async asyncData({ $axios }) {
-    const { data } = await $axios.get(`/cartoon/CT1613749319`)
+    const { data } = await $axios.get(`https://jsonplaceholder.typicode.com/todos/`)
+    console.log('data', data)
     return {
       exchange: data
     }

@@ -17,6 +17,31 @@ export default {
       title: `test 3 ${this.exchange.title} | title`,
       meta: [
         {
+          hid: 'description',
+          name: 'description',
+          content: `test 3 description`
+        },
+        {
+          hid: 'twitter:card',
+          name: 'twitter:card',
+          content: `test 3 ${this.exchange.title} | 7toons`
+        },
+        {
+          hid: 'twitter:title',
+          name: 'twitter:title',
+          content: `test 3 ${this.exchange.title} | 7toons`
+        },
+        {
+          hid: 'twitter:description',
+          name: 'twitter:description',
+          content: `test 3 description`
+        },
+        {
+          hid: 'twitter:image',
+          name: 'twitter:image',
+          content: this.exchange.thumbnail
+        },
+        {
           hid: 'og:title',
           name: 'og:title',
           content: `test 3 ${this.exchange.title} | og:title`

@@ -1,126 +1,103 @@
 <template>
-  <v-row justify="center" align="center">
-    <v-col cols="12" sm="8" md="6">
-      <div class="text-center">
-        <logo />
-        <vuetify-logo />
-      </div>
-      <v-card>
-        <v-card-title class="headline">
-          Welcome to the Vuetify + Nuxt.js template
-        </v-card-title>
-        <v-card-text>
-          <p>Vuetify is a progressive Material Design component framework for Vue.js. It was designed to empower developers to create amazing applications.</p>
-          <p>
-            For more information on Vuetify, check out the <a
-              href="https://vuetifyjs.com"
-              target="_blank"
-              rel="noopener noreferrer"
-            >
-              documentation
-            </a>.
-          </p>
-          <p>
-            If you have questions, please join the official <a
-              href="https://chat.vuetifyjs.com/"
-              target="_blank"
-              rel="noopener noreferrer"
-              title="chat"
-            >
-              discord
-            </a>.
-          </p>
-          <p>
-            Find a bug? Report it on the github <a
-              href="https://github.com/vuetifyjs/vuetify/issues"
-              target="_blank"
-              rel="noopener noreferrer"
-              title="contribute"
-            >
-              issue board
-            </a>.
-          </p>
-          <p>Thank you for developing with Vuetify and I look forward to bringing more exciting features in the future.</p>
-          <div class="text-xs-right">
-            <em><small>&mdash; John Leider</small></em>
-          </div>
-          <hr class="my-3">
-          <a
-            href="https://nuxtjs.org/"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Nuxt Documentation
-          </a>
-          <br>
-          <a
-            href="https://github.com/nuxt/nuxt.js"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Nuxt GitHub
-          </a>
-        </v-card-text>
-        <v-card-actions>
-          <v-spacer />
-          <v-btn
-            color="primary"
-            nuxt
-            to="/inspire"
-          >
-            Continue
-          </v-btn>
-        </v-card-actions>
-      </v-card>
-    </v-col>
-  </v-row>
+  <v-layout wrap class="mt-9 mx-0">
+    <v-flex xs12 sm12 md12 lg9 class="py-3">
+      <HomeCard
+        v-if="$store.state.listManga.length != 0"
+        title="มังงะอัพเดตล่าสุด !"
+        :listCartoons="$store.state.listManga"
+        :showAll="true"
+        route="/manga"
+      />
+      <HomeCard
+        v-if="$store.state.listNovel.length != 0"
+        title="นิยายอัพเดตล่าสุด !"
+        :listCartoons="$store.state.listNovel"
+        :showAll="true"
+        route="/novel"
+      />
+      <HomeCard
+        v-if="$store.state.listDoujinshi.length != 0"
+        title="โดจินชิอัพเดตล่าสุด !"
+        :listCartoons="$store.state.listDoujinshi"
+        :showAll="true"
+        route="/doujinshi"
+      />
+      <HomeCard
+        v-if="$store.state.listDoujin.length != 0"
+        title="โดจินอัพเดตล่าสุด !"
+        :listCartoons="$store.state.listDoujin"
+        :showAll="true"
+        route="/doujin"
+      />
+      <!-- <Loadmore /> -->
+    </v-flex>
+    <v-flex xs12 sm12 md12 lg3 class="py-3">
+      <SideCard />
+    </v-flex>
+  </v-layout>
 </template>
 
 <script>
-import Logo from '~/components/Logo.vue'
-import VuetifyLogo from '~/components/VuetifyLogo.vue'
-
 export default {
-  components: {
-    Logo,
-    VuetifyLogo
-  },
   head() {
     return {
-      title: `new data`,
+      title: `อ่านการ์ตูนออนไลน์ `,
       meta: [
+        { charset: 'utf-8' },
         {
-          hid: 'description',
-          name: 'description',
-          content: `new index`
+          hid: 'viewport',
+          name: 'viewport',
+          content: 'width=device-width, initial-scale=1',
         },
         {
           hid: 'twitter:card',
           name: 'twitter:card',
-          content: `new index`
+          content: 'read cartoon ',
         },
+        { hid: 'twitter:site', name: 'twitter:site', content: '@7toons' },
+        { hid: 'twitter:creator', name: 'twitter:creator', content: '@7toons' },
         {
           hid: 'twitter:title',
           name: 'twitter:title',
-          content: `new index`
+          content: `อ่านการ์ตูนออนไลน์ `,
         },
         {
           hid: 'twitter:description',
           name: 'twitter:description',
-          content: `new index description`
+          content: `อ่านการ์ตูนแปลไทย 24 ชั่วโมง เว็บอ่านการ์ตูนมีทุกประเภท ผลงานแปล Manga (ญี่ปุ่น), Manhwa (เกาหลี), จีนและ Comic (ตะวันตก) , Doujin (R18+) • ผลงานวาด Doujin (ศัพท์ญี่ปุ่น) ทุกหมวดหมู่ อัพเดทการ์ตูนทุกวัน เว็บอ่านการ์ตูนออนไลน์.`,
+        },
+        {
+          hid: 'twitter:image',
+          name: 'twitter:image',
+          content: `/icon2.png`,
+        },
+        {
+          hid: 'description',
+          name: 'description',
+          content: `อ่านการ์ตูนแปลไทย 24 ชั่วโมง เว็บอ่านการ์ตูนมีทุกประเภท ผลงานแปล Manga (ญี่ปุ่น), Manhwa (เกาหลี), จีนและ Comic (ตะวันตก) , Doujin (R18+) • ผลงานวาด Doujin (ศัพท์ญี่ปุ่น) ทุกหมวดหมู่ อัพเดทการ์ตูนทุกวัน เว็บอ่านการ์ตูนออนไลน์.`,
+        },
+        {
+          hid: 'og:image',
+          property: 'og:image',
+          content: `/icon2.png`,
+        },
+        {
+          hid: 'og:site_name',
+          name: 'og:site_name',
+          content: `อ่านการ์ตูนออนไลน์ `,
         },
         {
           hid: 'og:title',
           name: 'og:title',
-          content: `new index`
+          content: `อ่านการ์ตูนออนไลน์ `,
         },
         {
           hid: 'og:description',
           name: 'og:description',
-          content: `new index description`
-        }
-      ]
+          content: `อ่านการ์ตูนแปลไทย 24 ชั่วโมง เว็บอ่านการ์ตูนมีทุกประเภท ผลงานแปล Manga (ญี่ปุ่น), Manhwa (เกาหลี), จีนและ Comic (ตะวันตก) , Doujin (R18+) • ผลงานวาด Doujin (ศัพท์ญี่ปุ่น) ทุกหมวดหมู่ อัพเดทการ์ตูนทุกวัน เว็บอ่านการ์ตูนออนไลน์.`,
+        },
+      ],
     }
-  }
+  },
 }
 </script>

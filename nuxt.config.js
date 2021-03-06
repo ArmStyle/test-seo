@@ -3,30 +3,74 @@ import colors from "vuetify/es5/util/colors";
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: "Crypto Ticker",
+    title: "หน้าแรก",
+    titleTemplate: "%s - 7toons",
     meta: [
       { charset: "utf-8" },
       {
         hid: "viewport",
         name: "viewport",
         content: "width=device-width, initial-scale=1"
+      },
+      {
+        hid: "twitter:card",
+        name: "twitter:card",
+        content: "Cryptocurrency Compare Tool | 7toons"
+      },
+      { hid: "twitter:site", name: "twitter:site", content: "@7toons" },
+      { hid: "twitter:creator", name: "twitter:creator", content: "@7toons" },
+      {
+        hid: "twitter:title",
+        name: "twitter:title",
+        content: "หน้าแรก"
+      },
+      {
+        hid: "twitter:description",
+        name: "twitter:description",
+        content: `อ่านการ์ตูนแปลไทย 24 ชั่วโมง เว็บอ่านการ์ตูนมีทุกประเภท ผลงานแปล Manga (ญี่ปุ่น), Manhwa (เกาหลี), จีนและ Comic (ตะวันตก) , Doujin (R18+) • ผลงานวาด Doujin (ศัพท์ญี่ปุ่น) ทุกหมวดหมู่ อัพเดทการ์ตูนทุกวัน เว็บอ่านการ์ตูนออนไลน์.`
+      },
+      {
+        hid: "twitter:image",
+        name: "twitter:image",
+        content: "/icon2.png"
+      },
+      {
+        hid: "description",
+        name: "description",
+        content: `อ่านการ์ตูนแปลไทย 24 ชั่วโมง เว็บอ่านการ์ตูนมีทุกประเภท ผลงานแปล Manga (ญี่ปุ่น), Manhwa (เกาหลี), จีนและ Comic (ตะวันตก) , Doujin (R18+) • ผลงานวาด Doujin (ศัพท์ญี่ปุ่น) ทุกหมวดหมู่ อัพเดทการ์ตูนทุกวัน เว็บอ่านการ์ตูนออนไลน์.`
+      },
+      {
+        hid: "og:image",
+        property: "og:image",
+        content: "/icon2.png"
+      },
+      {
+        hid: "og:site_name",
+        name: "og:site_name",
+        content: "7toons"
+      },
+      { hid: "og:title", name: "og:title", content: "หน้าแรก" },
+      {
+        hid: "og:description",
+        name: "og:description",
+        content: `อ่านการ์ตูนแปลไทย 24 ชั่วโมง เว็บอ่านการ์ตูนมีทุกประเภท ผลงานแปล Manga (ญี่ปุ่น), Manhwa (เกาหลี), จีนและ Comic (ตะวันตก) , Doujin (R18+) • ผลงานวาด Doujin (ศัพท์ญี่ปุ่น) ทุกหมวดหมู่ อัพเดทการ์ตูนทุกวัน เว็บอ่านการ์ตูนออนไลน์.`
       }
     ],
     link: [
-      { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
+      { rel: "icon", type: "image/png", href: "/icon2.png" },
       {
         rel: "stylesheet",
         href:
-          "https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons"
+          "https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
       }
     ]
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [],
+  css: ["~/styles/index.css"],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [],
+  plugins: ["~/plugins/format.js"],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -44,65 +88,73 @@ export default {
     // https://go.nuxtjs.dev/pwa
     "@nuxtjs/pwa",
     "@nuxtjs/google-analytics",
+    "@nuxtjs/google-adsense",
     "@nuxtjs/sitemap"
   ],
+  "google-adsense": {
+    id: "ca-pub-2735809627790100",
+    analyticsUacct: "UA-188445235-1"
+  },
   googleAnalytics: {
-    id: "{YOUR GOOGLE ANALYTICS ID}",
+    id: "UA-188445235-1",
     dev: false
   },
   sitemap: {
-    path: "/sitemap.xml",
-    hostname: "https://tested-seo.herokuapp.com/",
+    hostname: "https://7toons.com",
     cacheTime: 1000 * 60 * 15,
     gzip: true,
     generate: false,
     routes: [
-      "/",
       "/inspire",
       "/test",
       "/test2",
       "/test3",
-      "/cartoon/1613749319",
-      "/user/:id"
+      "/user/:id",
+      "/",
+      "/manga",
+      "/novel",
+      "/doujinshi",
+      "/doujin",
+      "/About-Us",
+      "/Privacy",
+      "/:title",
+      "/:title/:ep"
     ].map(route => ({
       url: route,
       changefreq: "monthly",
       priority: 1,
       lastmodISO: new Date().toISOString().split("T")[0]
     }))
-    // sitemaps: [
-    //   {
-    //     path: "/user/:id",
-    //     exclude: [],
-    //     routes: async () => {
-    //       let apiUrl = "https://jsonplaceholder.typicode.com/todos/"; // or API url
-    //       const { data } = await axios.get(`${apiUrl}`);
-    //       return data.data.map(v => `/${v.id}`);
-    //     }
-    //   }
-    // ]
   },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
-    baseURL: "https://api.7toons.com/v1"
+    baseURL: "https://api.7toons.com/v1/"
   },
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
   pwa: {
     manifest: {
       lang: "en"
-    }
+    },
+    // icon: {
+    //   source: "./icon2.png",
+    //   // fileName: "icon2.png",
+    //   cacheDir: './icon2.png'
+    // }
   },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
     customVariables: ["~/assets/variables.scss"],
     theme: {
-      dark: true,
+      dark: false,
       themes: {
+        light: {
+          primary: colors.red
+        },
         dark: {
-          primary: colors.blue.darken2,
+          primary: colors.red,
           accent: colors.grey.darken3,
           secondary: colors.amber.darken3,
           info: colors.teal.lighten1,
@@ -113,6 +165,7 @@ export default {
       }
     }
   },
+  loading: "~/components/LoadingBar.vue",
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {}

@@ -61,11 +61,6 @@ export default {
     gzip: true,
     generate: false,
     routes: [
-      "/inspire",
-      "/test",
-      "/test2",
-      "/test3",
-      "/user/:id",
       "/",
       "/manga",
       "/novel",

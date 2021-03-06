@@ -63,20 +63,18 @@
 import { mapState } from 'vuex'
 
 export default {
-  async asyncData({ params, $axios, store }) {
+  async asyncData({ params, $axios }) {
     let cartoonId = 'CT' + params.title
     // หา detail cartoon
     let getCartoon = await $axios.get(`/cartoon/` + cartoonId, {})
     // หา id episode
     let getEpisodes = await $axios.get('/episode?cartoon_id=' + cartoonId, {})
-    let cartoonEp = getEpisodes.data.find(
-      (element) => element.episode == params.ep
-    )
+    let cartoonEp = getEpisodes.data.find(element => element.episode == params.ep)
     return {
       cartoonId,
       cartoonEp,
       getCartoon: getCartoon.data,
-      getEpisodes: getEpisodes.data,
+      getEpisodes: getEpisodes.data
     }
   },
   head() {
@@ -87,64 +85,64 @@ export default {
         {
           hid: 'viewport',
           name: 'viewport',
-          content: 'width=device-width, initial-scale=1',
+          content: 'width=device-width, initial-scale=1'
         },
         {
           hid: 'twitter:card',
           name: 'twitter:card',
-          content: 'read cartoon ',
+          content: 'read cartoon '
         },
         { hid: 'twitter:site', name: 'twitter:site', content: '@7toons' },
         { hid: 'twitter:creator', name: 'twitter:creator', content: '@7toons' },
         {
           hid: 'twitter:title',
           name: 'twitter:title',
-          content: `${this.getCartoon.title} ตอนที่ ${this.cartoonEp.episode} `,
+          content: `${this.getCartoon.title} ตอนที่ ${this.cartoonEp.episode} `
         },
         {
           hid: 'twitter:description',
           name: 'twitter:description',
-          content: `${this.getCartoon.title} เว็บอ่านการ์ตูนออนไลน์ การ์ตูนแปลไทย การ์ตูนล่าสุด อ่านการ์ตูนบน Ipad Iphone Android ได้ง่ายๆ ที่นี่เลย 7toons.com`,
+          content: `${this.getCartoon.title} เว็บอ่านการ์ตูนออนไลน์ การ์ตูนแปลไทย การ์ตูนล่าสุด อ่านการ์ตูนบน Ipad Iphone Android ได้ง่ายๆ ที่นี่เลย 7toons.com`
         },
         {
           hid: 'twitter:image',
           name: 'twitter:image',
-          content: this.getCartoon.thumbnail,
+          content: this.getCartoon.thumbnail
         },
         {
           hid: 'description',
           name: 'description',
-          content: `${this.getCartoon.title} เว็บอ่านการ์ตูนออนไลน์ การ์ตูนแปลไทย การ์ตูนล่าสุด อ่านการ์ตูนบน Ipad Iphone Android ได้ง่ายๆ ที่นี่เลย 7toons.com`,
+          content: `${this.getCartoon.title} เว็บอ่านการ์ตูนออนไลน์ การ์ตูนแปลไทย การ์ตูนล่าสุด อ่านการ์ตูนบน Ipad Iphone Android ได้ง่ายๆ ที่นี่เลย 7toons.com`
         },
         {
           hid: 'og:image',
           property: 'og:image',
-          content: this.getCartoon.thumbnail,
+          content: this.getCartoon.thumbnail
         },
         {
           hid: 'og:site_name',
           name: 'og:site_name',
-          content: `${this.getCartoon.title} ตอนที่ ${this.cartoonEp.episode} `,
+          content: `${this.getCartoon.title} ตอนที่ ${this.cartoonEp.episode} `
         },
         {
           hid: 'og:title',
           name: 'og:title',
-          content: `${this.getCartoon.title} ตอนที่ ${this.cartoonEp.episode} `,
+          content: `${this.getCartoon.title} ตอนที่ ${this.cartoonEp.episode} `
         },
         {
           hid: 'og:description',
           name: 'og:description',
-          content: `${this.getCartoon.title} เว็บอ่านการ์ตูนออนไลน์ การ์ตูนแปลไทย การ์ตูนล่าสุด อ่านการ์ตูนบน Ipad Iphone Android ได้ง่ายๆ ที่นี่เลย 7toons.com`,
-        },
-      ],
+          content: `${this.getCartoon.title} เว็บอ่านการ์ตูนออนไลน์ การ์ตูนแปลไทย การ์ตูนล่าสุด อ่านการ์ตูนบน Ipad Iphone Android ได้ง่ายๆ ที่นี่เลย 7toons.com`
+        }
+      ]
     }
   },
   computed: {
     ...mapState({
-      cartoon: (state) => state.cartoon,
-      listCartoonsPopular: (state) => state.listCartoonsPopular,
-      readCartoon: (state) => state.readCartoon,
-    }),
+      cartoon: state => state.cartoon,
+      listCartoonsPopular: state => state.listCartoonsPopular,
+      readCartoon: state => state.readCartoon
+    })
   },
   async created() {
     this.$nuxt.$loading.start()
@@ -161,16 +159,16 @@ export default {
     },
     prevEpisode(data) {
       this.$router.replace({
-        path: '/' + this.cartoonId.replace('CT', '') + '/' + data.episode,
+        path: '/' + this.cartoonId.replace('CT', '') + '/' + data.episode
       })
     },
     nextEpisode(data) {
       this.$store.commit('SET_EPISODE_ID', data.id)
       this.$router.replace({
-        path: '/' + this.cartoonId.replace('CT', '') + '/' + data.episode,
+        path: '/' + this.cartoonId.replace('CT', '') + '/' + data.episode
       })
-    },
-  },
+    }
+  }
 }
 </script>
 

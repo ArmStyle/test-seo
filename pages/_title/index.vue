@@ -144,7 +144,6 @@
 
 <script>
 import { mapState } from 'vuex'
-import axios from '@nuxtjs/axios'
 
 export default {
   async asyncData({ params, $axios }) {

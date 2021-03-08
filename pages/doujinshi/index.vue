@@ -22,7 +22,7 @@ export default {
   },
   head() {
     return {
-      title: `โดจินชิ `,
+      title: `โดจินชิ - 7toons`,
       meta: [
         { charset: 'utf-8' },
         {

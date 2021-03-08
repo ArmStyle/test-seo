@@ -41,7 +41,7 @@
 export default {
   head() {
     return {
-      title: `อ่านการ์ตูนออนไลน์ `,
+      title: `อ่านการ์ตูนออนไลน์ - 7toons`,
       meta: [
         { charset: 'utf-8' },
         {

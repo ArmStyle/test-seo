@@ -79,7 +79,7 @@ export default {
   },
   head() {
     return {
-      title: `${this.getCartoon.title} ตอนที่ ${this.cartoonEp.episode} `,
+      title: `${this.getCartoon.title} ตอนที่ ${this.cartoonEp.episode} - 7toons`,
       meta: [
         { charset: 'utf-8' },
         {

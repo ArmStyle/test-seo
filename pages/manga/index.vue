@@ -22,7 +22,7 @@ export default {
   },
   head() {
     return {
-      title: `มังงะ `,
+      title: `มังงะ - 7toons`,
       meta: [
         { charset: 'utf-8' },
         {

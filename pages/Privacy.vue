@@ -45,7 +45,7 @@ export default {
   // },
   head() {
     return {
-      title: `นโยบายความเป็นส่วนตัว `,
+      title: `นโยบายความเป็นส่วนตัว - 7toons`,
       meta: [
         { charset: 'utf-8' },
         {

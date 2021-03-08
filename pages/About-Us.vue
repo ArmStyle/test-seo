@@ -37,7 +37,7 @@ export default {
   // },
   head() {
     return {
-      title: `เกี่ยวกับเรา`,
+      title: `เกี่ยวกับเรา - 7toons`,
       meta: [
         {
           hid: 'description',

@@ -154,7 +154,7 @@ export default {
   },
   head() {
     return {
-      title: `${this.getCartoon.title} `,
+      title: `${this.getCartoon.title} - 7toons`,
       meta: [
         { charset: 'utf-8' },
         {

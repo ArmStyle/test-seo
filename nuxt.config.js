@@ -55,7 +55,7 @@ export default {
     dev: false
   },
   sitemap: {
-    hostname: "https://7toons.com",
+    hostname: "https://tested-seo.herokuapp.com",
     cacheTime: 1000 * 60 * 15,
     gzip: true,
     generate: false,

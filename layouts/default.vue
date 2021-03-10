@@ -1,108 +1,117 @@
 <template>
-  <div>
-    <v-app class="list-group" id="infinite-list">
-      <Navbar />
+  <v-app dark>
+    <v-navigation-drawer
+      v-model="drawer"
+      :mini-variant="miniVariant"
+      :clipped="clipped"
+      fixed
+      app
+    >
+      <v-list>
+        <v-list-item
+          v-for="(item, i) in items"
+          :key="i"
+          :to="item.to"
+          router
+          exact
+        >
+          <v-list-item-action>
+            <v-icon>{{ item.icon }}</v-icon>
+          </v-list-item-action>
+          <v-list-item-content>
+            <v-list-item-title v-text="item.title" />
+          </v-list-item-content>
+        </v-list-item>
+      </v-list>
+    </v-navigation-drawer>
+    <v-app-bar
+      :clipped-left="clipped"
+      fixed
+      app
+    >
+      <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
       <v-btn
-        transition="scroll-y-transition"
-        v-show="fab"
-        fab
-        dark
-        fixed
-        bottom
-        right
-        color="primary"
-        @click="toTop()"
+        icon
+        @click.stop="miniVariant = !miniVariant"
       >
-        <v-icon>mdi-arrow-up</v-icon>
+        <v-icon>mdi-{{ `chevron-${miniVariant ? 'right' : 'left'}` }}</v-icon>
       </v-btn>
-      <v-main>
-        <v-container class="pa-0" style="max-width: 1180px">
-          <Ad />
-
-          <!-- <adsbygoogle ad-slot="1364637074" ad-client="ca-pub-2735809627790100" /> -->
-          <v-lazy
-            v-model="isActive"
-            :options="{
-              threshold: .5
-            }"
-            min-height="200"
-            transition="fade-transition"
-          >
-            <v-card elevation="0" class="card-container">
-              <nuxt class="pa-0 shadow" />
-            </v-card>
-          </v-lazy>
-          <adsbygoogle />
-        </v-container>
-      </v-main>
-      <Footer />
-    </v-app>
-  </div>
+      <v-btn
+        icon
+        @click.stop="clipped = !clipped"
+      >
+        <v-icon>mdi-application</v-icon>
+      </v-btn>
+      <v-btn
+        icon
+        @click.stop="fixed = !fixed"
+      >
+        <v-icon>mdi-minus</v-icon>
+      </v-btn>
+      <v-toolbar-title v-text="title" />
+      <v-spacer />
+      <v-btn
+        icon
+        @click.stop="rightDrawer = !rightDrawer"
+      >
+        <v-icon>mdi-menu</v-icon>
+      </v-btn>
+    </v-app-bar>
+    <v-main>
+      <v-container>
+        <nuxt />
+      </v-container>
+    </v-main>
+    <v-navigation-drawer
+      v-model="rightDrawer"
+      :right="right"
+      temporary
+      fixed
+    >
+      <v-list>
+        <v-list-item @click.native="right = !right">
+          <v-list-item-action>
+            <v-icon light>
+              mdi-repeat
+            </v-icon>
+          </v-list-item-action>
+          <v-list-item-title>Switch drawer (click me)</v-list-item-title>
+        </v-list-item>
+      </v-list>
+    </v-navigation-drawer>
+    <v-footer
+      :absolute="!fixed"
+      app
+    >
+      <span>&copy; {{ new Date().getFullYear() }}</span>
+    </v-footer>
+  </v-app>
 </template>
 
 <script>
 export default {
-  head() {
+  data () {
     return {
-      head: {
-        script: [
-          {
-            src: 'https://cdn.ampproject.org/v0/amp-ad-0.1.js',
-            custom_element: 'amp-ad',
-            async: true,
-          },
-        ],
-      },
-    }
-  },
-  data() {
-    return {
-      isActive: false,
-      right: false,
-      rightDrawer: false,
-      title: 'Vuetify.js',
+      clipped: false,
+      drawer: false,
       fixed: false,
-      loading: false,
-
-      fab: false,
+      items: [
+        {
+          icon: 'mdi-apps',
+          title: 'Welcome',
+          to: '/'
+        },
+        {
+          icon: 'mdi-chart-bubble',
+          title: 'Inspire',
+          to: '/inspire'
+        }
+      ],
+      miniVariant: false,
+      right: true,
+      rightDrawer: false,
+      title: 'Vuetify.js'
     }
-  },
-  async created() {
-    let { data: getSearchList } = await this.$axios.get('/cartoon/search', {})
-    this.$store.commit('SET_SEARCH_LIST', getSearchList)
-  },
-  async mounted() {
-    this.$nextTick(() => {
-      this.$nuxt.$loading.start()
-      setTimeout(() => this.$nuxt.$loading.finish(), 500)
-    })
-
-    if (localStorage.getItem('theme') === 'true') {
-      this.$vuetify.theme.dark = true
-    } else {
-      this.$vuetify.theme.dark = false
-    }
-    try {
-      let listCategory = await this.$axios.get(`/category`, {})
-      listCategory.data.unshift({
-        id: 'CA000000000',
-        name: 'all',
-      })
-
-      this.$store.commit('SET_LIST_CATEGORY', listCategory.data)
-    } catch (error) {}
-
-    const listElm = document.querySelector('#infinite-list')
-    if (!this.listCartoonsPopular || this.listCartoonsPopular.length == 0) {
-      let listCartoons = await this.$axios.get(`/cartoon/latest?limit=8`, {})
-      this.$store.commit('SET_LIST_CARTOONS_POPULAR', listCartoons.data)
-    }
-  },
-  methods: {
-    toTop() {
-      let scroll = document.querySelector('#infinite-list')
-      scroll.scrollTop = 0
-    },
-  },
+  }
 }
 </script>

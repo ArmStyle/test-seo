@@ -3,6 +3,7 @@ import colors from "vuetify/es5/util/colors";
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
+    title: "Crypto Ticker",
     meta: [
       { charset: "utf-8" },
       {
@@ -12,20 +13,20 @@ export default {
       }
     ],
     link: [
-      { rel: "icon", type: "image/png", href: "/icon.png" },
+      { rel: "icon", type: "image/x-icon", href: "/favicon.ico" },
       {
         rel: "stylesheet",
         href:
-          "https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap"
+          "https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons"
       }
     ]
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: ["~/styles/index.css"],
+  css: [],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: ["~/plugins/format.js"],
+  plugins: [],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -43,56 +44,48 @@ export default {
     // https://go.nuxtjs.dev/pwa
     "@nuxtjs/pwa",
     "@nuxtjs/google-analytics",
-    "@nuxtjs/google-adsense",
-    "@nuxtjs/sitemap",
-    "nuxt-seo"
+    "@nuxtjs/sitemap"
   ],
-  seo: {
-    // Module options
-    baseUrl: "https://7toons.com",
-    name: "<name of site>",
-    title: "<title default>",
-    templateTitle: "%name% - %title%",
-    description: "<description default>",
-    canonical: "auto",
-    isForcedTrailingSlash: false
-    //...
-  },
-  "google-adsense": {
-    id: "ca-pub-2735809627790100",
-    analyticsUacct: "UA-188445235-1"
-  },
   googleAnalytics: {
-    id: "UA-188445235-1",
+    id: "{YOUR GOOGLE ANALYTICS ID}",
     dev: false
   },
   sitemap: {
-    hostname: "https://tested-seo.herokuapp.com",
+    path: "/sitemap.xml",
+    hostname: "https://tested-seo.herokuapp.com/",
     cacheTime: 1000 * 60 * 15,
     gzip: true,
     generate: false,
     routes: [
       "/",
       "/inspire",
-      "/manga",
-      "/novel",
-      "/doujinshi",
-      "/doujin",
-      "/About-Us",
-      "/Privacy",
-      "/:title",
-      "/:title/:ep"
+      "/test",
+      "/test2",
+      "/test3",
+      "/cartoon/1613749319",
+      "/user/:id"
     ].map(route => ({
       url: route,
       changefreq: "monthly",
       priority: 1,
       lastmodISO: new Date().toISOString().split("T")[0]
     }))
+    // sitemaps: [
+    //   {
+    //     path: "/user/:id",
+    //     exclude: [],
+    //     routes: async () => {
+    //       let apiUrl = "https://jsonplaceholder.typicode.com/todos/"; // or API url
+    //       const { data } = await axios.get(`${apiUrl}`);
+    //       return data.data.map(v => `/${v.id}`);
+    //     }
+    //   }
+    // ]
   },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
-    baseURL: "https://api.7toons.com/v1/"
+    baseURL: "https://api.7toons.com/v1"
   },
 
   // PWA module configuration: https://go.nuxtjs.dev/pwa
@@ -100,24 +93,16 @@ export default {
     manifest: {
       lang: "en"
     }
-    // icon: {
-    //   source: "./icon.png",
-    //   // fileName: "icon.png",
-    //   cacheDir: './icon.png'
-    // }
   },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
     customVariables: ["~/assets/variables.scss"],
     theme: {
-      dark: false,
+      dark: true,
       themes: {
-        light: {
-          primary: colors.red
-        },
         dark: {
-          primary: colors.red,
+          primary: colors.blue.darken2,
           accent: colors.grey.darken3,
           secondary: colors.amber.darken3,
           info: colors.teal.lighten1,
@@ -128,7 +113,6 @@ export default {
       }
     }
   },
-  loading: "~/components/LoadingBar.vue",
 
   // Build Configuration: https://go.nuxtjs.dev/config-build
   build: {}

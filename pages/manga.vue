@@ -9,60 +9,37 @@
 export default {
   head() {
     return {
-      title: `มังงะ `,
+      title: `มังงะ`,
       meta: [
-        { charset: 'utf-8' },
         {
-          hid: 'viewport',
-          name: 'viewport',
-          content: 'width=device-width, initial-scale=1'
+          hid: 'description',
+          name: 'description',
+          content: `ssssssssssssss`
         },
         {
           hid: 'twitter:card',
           name: 'twitter:card',
-          content: 'read cartoon '
+          content: `ddddddddddddddddddd`
         },
-        { hid: 'twitter:site', name: 'twitter:site', content: '@7toons' },
-        { hid: 'twitter:creator', name: 'twitter:creator', content: '@7toons' },
         {
           hid: 'twitter:title',
           name: 'twitter:title',
-          content: `มังงะ `
+          content: `fffffffffffffffffffff`
         },
         {
           hid: 'twitter:description',
           name: 'twitter:description',
-          content: `อ่านมังงะแปลไทย และ อื่นๆอีกมากมาย `
-        },
-        {
-          hid: 'twitter:image',
-          name: 'twitter:image',
-          content: `/icon.png`
-        },
-        {
-          hid: 'description',
-          name: 'description',
-          content: `อ่านมังงะแปลไทย และ อื่นๆอีกมากมาย `
-        },
-        {
-          hid: 'og:image',
-          property: 'og:image',
-          content: `/icon.png`
-        },
-        {
-          hid: 'og:site_name',
-          name: 'og:site_name',
-          content: `มังงะ `
+          content: `gggggggggggggggggggggggg`
         },
         {
           hid: 'og:title',
           name: 'og:title',
-          content: `มังงะ  `
+          content: `hhhhhhhhhhhhhhhhhhh`
         },
         {
           hid: 'og:description',
           name: 'og:description',
-          content: `อ่านมังงะแปลไทย และ อื่นๆอีกมากมาย `
+          content: `jjjjjjjjjjjjjjjjjjjj`
         }
       ]
     }

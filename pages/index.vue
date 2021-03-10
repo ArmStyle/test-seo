@@ -47,57 +47,57 @@ export default {
         {
           hid: 'viewport',
           name: 'viewport',
-          content: 'width=device-width, initial-scale=1',
+          content: 'width=device-width, initial-scale=1'
         },
         {
           hid: 'twitter:card',
           name: 'twitter:card',
-          content: 'read cartoon ',
+          content: 'read cartoon '
         },
         { hid: 'twitter:site', name: 'twitter:site', content: '@7toons' },
         { hid: 'twitter:creator', name: 'twitter:creator', content: '@7toons' },
         {
           hid: 'twitter:title',
           name: 'twitter:title',
-          content: `อ่านการ์ตูนออนไลน์ `,
+          content: `อ่านการ์ตูนออนไลน์ `
         },
         {
           hid: 'twitter:description',
           name: 'twitter:description',
-          content: `อ่านการ์ตูนแปลไทย 24 ชั่วโมง เว็บอ่านการ์ตูนมีทุกประเภท ผลงานแปล Manga (ญี่ปุ่น), Manhwa (เกาหลี), จีนและ Comic (ตะวันตก) , Doujin (R18+) • ผลงานวาด Doujin (ศัพท์ญี่ปุ่น) ทุกหมวดหมู่ อัพเดทการ์ตูนทุกวัน เว็บอ่านการ์ตูนออนไลน์.`,
+          content: `อ่านการ์ตูนแปลไทย 24 ชั่วโมง เว็บอ่านการ์ตูนมีทุกประเภท ผลงานแปล Manga (ญี่ปุ่น), Manhwa (เกาหลี), จีนและ Comic (ตะวันตก) , Doujin (R18+) • ผลงานวาด Doujin (ศัพท์ญี่ปุ่น) ทุกหมวดหมู่ อัพเดทการ์ตูนทุกวัน เว็บอ่านการ์ตูนออนไลน์.`
         },
         {
           hid: 'twitter:image',
           name: 'twitter:image',
-          content: `/icon2.png`,
+          content: `/icon.png`
         },
         {
           hid: 'description',
           name: 'description',
-          content: `อ่านการ์ตูนแปลไทย 24 ชั่วโมง เว็บอ่านการ์ตูนมีทุกประเภท ผลงานแปล Manga (ญี่ปุ่น), Manhwa (เกาหลี), จีนและ Comic (ตะวันตก) , Doujin (R18+) • ผลงานวาด Doujin (ศัพท์ญี่ปุ่น) ทุกหมวดหมู่ อัพเดทการ์ตูนทุกวัน เว็บอ่านการ์ตูนออนไลน์.`,
+          content: `อ่านการ์ตูนแปลไทย 24 ชั่วโมง เว็บอ่านการ์ตูนมีทุกประเภท ผลงานแปล Manga (ญี่ปุ่น), Manhwa (เกาหลี), จีนและ Comic (ตะวันตก) , Doujin (R18+) • ผลงานวาด Doujin (ศัพท์ญี่ปุ่น) ทุกหมวดหมู่ อัพเดทการ์ตูนทุกวัน เว็บอ่านการ์ตูนออนไลน์.`
         },
         {
           hid: 'og:image',
           property: 'og:image',
-          content: `/icon2.png`,
+          content: `/icon.png`
         },
         {
           hid: 'og:site_name',
           name: 'og:site_name',
-          content: `อ่านการ์ตูนออนไลน์ `,
+          content: `อ่านการ์ตูนออนไลน์ `
         },
         {
           hid: 'og:title',
           name: 'og:title',
-          content: `อ่านการ์ตูนออนไลน์ `,
+          content: `อ่านการ์ตูนออนไลน์ `
         },
         {
           hid: 'og:description',
           name: 'og:description',
-          content: `อ่านการ์ตูนแปลไทย 24 ชั่วโมง เว็บอ่านการ์ตูนมีทุกประเภท ผลงานแปล Manga (ญี่ปุ่น), Manhwa (เกาหลี), จีนและ Comic (ตะวันตก) , Doujin (R18+) • ผลงานวาด Doujin (ศัพท์ญี่ปุ่น) ทุกหมวดหมู่ อัพเดทการ์ตูนทุกวัน เว็บอ่านการ์ตูนออนไลน์.`,
-        },
-      ],
+          content: `อ่านการ์ตูนแปลไทย 24 ชั่วโมง เว็บอ่านการ์ตูนมีทุกประเภท ผลงานแปล Manga (ญี่ปุ่น), Manhwa (เกาหลี), จีนและ Comic (ตะวันตก) , Doujin (R18+) • ผลงานวาด Doujin (ศัพท์ญี่ปุ่น) ทุกหมวดหมู่ อัพเดทการ์ตูนทุกวัน เว็บอ่านการ์ตูนออนไลน์.`
+        }
+      ]
     }
-  },
+  }
 }
 </script>

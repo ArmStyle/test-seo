@@ -12,7 +12,7 @@ export default {
       }
     ],
     link: [
-      { rel: "icon", type: "image/png", href: "/icon2.png" },
+      { rel: "icon", type: "image/png", href: "/icon.png" },
       {
         rel: "stylesheet",
         href:
@@ -89,9 +89,9 @@ export default {
       lang: "en"
     }
     // icon: {
-    //   source: "./icon2.png",
-    //   // fileName: "icon2.png",
-    //   cacheDir: './icon2.png'
+    //   source: "./icon.png",
+    //   // fileName: "icon.png",
+    //   cacheDir: './icon.png'
     // }
   },
 

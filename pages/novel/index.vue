@@ -17,7 +17,7 @@ import myFunc from '../../js/myFunction.js'
 export default {
   data() {
     return {
-      myFunc,
+      myFunc
     }
   },
   head() {
@@ -28,58 +28,58 @@ export default {
         {
           hid: 'viewport',
           name: 'viewport',
-          content: 'width=device-width, initial-scale=1',
+          content: 'width=device-width, initial-scale=1'
         },
         {
           hid: 'twitter:card',
           name: 'twitter:card',
-          content: 'read cartoon ',
+          content: 'read cartoon '
         },
         { hid: 'twitter:site', name: 'twitter:site', content: '@7toons' },
         { hid: 'twitter:creator', name: 'twitter:creator', content: '@7toons' },
         {
           hid: 'twitter:title',
           name: 'twitter:title',
-          content: `นิยาย `,
+          content: `นิยาย `
         },
         {
           hid: 'twitter:description',
           name: 'twitter:description',
-          content: `อ่านนิยายแปลไทย และ อื่นๆอีกมากมาย `,
+          content: `อ่านนิยายแปลไทย และ อื่นๆอีกมากมาย `
         },
         {
           hid: 'twitter:image',
           name: 'twitter:image',
-          content: `/icon2.png`,
+          content: `/icon.png`
         },
         {
           hid: 'description',
           name: 'description',
-          content: `อ่านนิยายแปลไทย และ อื่นๆอีกมากมาย `,
+          content: `อ่านนิยายแปลไทย และ อื่นๆอีกมากมาย `
         },
         {
           hid: 'og:image',
           property: 'og:image',
-          content: `/icon2.png`,
+          content: `/icon.png`
         },
         {
           hid: 'og:site_name',
           name: 'og:site_name',
-          content: `นิยาย `,
+          content: `นิยาย `
         },
         {
           hid: 'og:title',
           name: 'og:title',
-          content: `นิยาย  `,
+          content: `นิยาย  `
         },
         {
           hid: 'og:description',
           name: 'og:description',
-          content: `อ่านนิยายแปลไทย และ อื่นๆอีกมากมาย `,
-        },
-      ],
+          content: `อ่านนิยายแปลไทย และ อื่นๆอีกมากมาย `
+        }
+      ]
     }
-  },
+  }
 }
 </script>
 

@@ -146,90 +146,36 @@
 import { mapState } from 'vuex'
 
 export default {
-  async asyncData({ params, $axios }) {
-    let cartoonId = 'CT' + params.title
-    let getCartoon = await $axios.get(`/cartoon/` + cartoonId, {})
-    let getEpisodes = await $axios.get('/episode?cartoon_id=' + cartoonId, {})
+  async asyncData(ctx) {
+    let cartoonId = 'CT' + ctx.route.params.title
+    let getCartoon = await ctx.$axios.get(`/cartoon/` + cartoonId, {})
+    let getEpisodes = await ctx.$axios.get('/episode?cartoon_id=' + cartoonId, {})
     return { getCartoon: getCartoon.data, getEpisodes: getEpisodes.data }
   },
-  head() {
-    return {
-      title: `${this.getCartoon.title} - 7toons`,
-      meta: [
-        { charset: 'utf-8' },
-        {
-          hid: 'viewport',
-          name: 'viewport',
-          content: 'width=device-width, initial-scale=1',
-        },
-        {
-          hid: 'twitter:card',
-          name: 'twitter:card',
-          content: 'read cartoon ',
-        },
-        { hid: 'twitter:site', name: 'twitter:site', content: '@7toons' },
-        { hid: 'twitter:creator', name: 'twitter:creator', content: '@7toons' },
-        {
-          hid: 'twitter:title',
-          name: 'twitter:title',
-          content: `${this.getCartoon.title} `,
-        },
-        {
-          hid: 'twitter:description',
-          name: 'twitter:description',
-          content: this.getCartoon.summary,
-        },
-        {
-          hid: 'twitter:image',
-          name: 'twitter:image',
-          content: this.getCartoon.thumbnail,
-        },
-        {
-          hid: 'description',
-          name: 'description',
-          content: this.getCartoon.summary,
-        },
-        {
-          hid: 'og:image',
-          property: 'og:image',
-          content: this.getCartoon.thumbnail,
-        },
-        {
-          hid: 'og:site_name',
-          name: 'og:site_name',
-          content: `${this.getCartoon.title} `,
-        },
-        {
-          hid: 'og:title',
-          name: 'og:title',
-          content: `${this.getCartoon.title}  `,
-        },
-        {
-          hid: 'og:description',
-          name: 'og:description',
-          content: this.getCartoon.summary,
-        },
-      ],
-    }
+  head: function () {
+    return this.$seo({
+      name: 'Name app',
+      title: this.getCartoon.title,
+      templateTitle: '%name% - %title%',
+      description: 'Hello World Page'
+    })
   },
 
   data() {
     return {
-      showLess: true,
+      showLess: true
     }
   },
   computed: {
     ...mapState({
-      listCartoonsPopular: (state) => state.listCartoonsPopular,
-      cartoon: (state) => state.cartoon,
-      cartoonEp: (state) => state.cartoonEp,
-    }),
+      listCartoonsPopular: state => state.listCartoonsPopular,
+      cartoon: state => state.cartoon,
+      cartoonEp: state => state.cartoonEp
+    })
   },
   async created() {
     this.$nuxt.$loading.start()
-    this.getCartoon.category = await this.checkForDuplicates(
-      this.getCartoon.category
-    )
+    this.getCartoon.category = await this.checkForDuplicates(this.getCartoon.category)
     document.querySelector('#infinite-list').scrollTop = 0
     this.$store.commit('SET_CARTOON', this.getCartoon)
     this.$store.commit('SET_CARTOON_EP', this.getEpisodes)
@@ -246,10 +192,7 @@ export default {
         }
       }
       if (genre == 'doujin') {
-        this.$store.commit(
-          'SET_TAB',
-          this.$store.state.listCategoryDoujin.indexOf(category)
-        )
+        this.$store.commit('SET_TAB', this.$store.state.listCategoryDoujin.indexOf(category))
       }
       this.getListCartoon()
     },
@@ -275,8 +218,7 @@ export default {
     async getListCartoon() {
       this.toTop()
       let genre = this.$store.state.genre
-      let category =
-        this.$store.state.category != 'all' ? this.$store.state.category : null
+      let category = this.$store.state.category != 'all' ? this.$store.state.category : null
       let listCartoons
 
       if (!genre || genre == 'index') {
@@ -284,10 +226,7 @@ export default {
           listCartoons = await this.$axios.$get('/cartoon/latest?limit=20', {})
           this.$store.commit('SET_LIST_CARTOONS', listCartoons.data)
           if (listCartoons.LastEvaluatedKey) {
-            this.$store.commit(
-              'SET_LASTEVALUATEDKEY',
-              listCartoons.LastEvaluatedKey
-            )
+            this.$store.commit('SET_LASTEVALUATEDKEY', listCartoons.LastEvaluatedKey)
           } else {
             this.$store.commit('SET_LASTEVALUATEDKEY', null)
           }
@@ -295,25 +234,19 @@ export default {
       } else {
         try {
           let api =
-            `/cartoon/filter?limit=20&` +
-            (genre ? 'genre=' + genre : '') +
-            (genre && category ? '&' : '') +
-            (category ? 'category=' + category : '')
+            `/cartoon/filter?limit=20&` + (genre ? 'genre=' + genre : '') + (genre && category ? '&' : '') + (category ? 'category=' + category : '')
 
           listCartoons = await this.$axios.get(api, {})
           this.$store.commit('SET_LIST_CARTOONS', listCartoons.data)
           if (listCartoons.data.LastEvaluatedKey) {
-            this.$store.commit(
-              'SET_LASTEVALUATEDKEY',
-              listCartoons.data.LastEvaluatedKey
-            )
+            this.$store.commit('SET_LASTEVALUATEDKEY', listCartoons.data.LastEvaluatedKey)
           } else {
             this.$store.commit('SET_LASTEVALUATEDKEY', null)
           }
         } catch (error) {}
       }
-    },
-  },
+    }
+  }
 }
 </script>
 

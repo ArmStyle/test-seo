@@ -44,8 +44,20 @@ export default {
     "@nuxtjs/pwa",
     "@nuxtjs/google-analytics",
     "@nuxtjs/google-adsense",
-    "@nuxtjs/sitemap"
+    "@nuxtjs/sitemap",
+    "nuxt-seo"
   ],
+  seo: {
+    // Module options
+    baseUrl: "https://7toons.com",
+    name: "<name of site>",
+    title: "<title default>",
+    templateTitle: "%name% - %title%",
+    description: "<description default>",
+    canonical: "auto",
+    isForcedTrailingSlash: false
+    //...
+  },
   "google-adsense": {
     id: "ca-pub-2735809627790100",
     analyticsUacct: "UA-188445235-1"

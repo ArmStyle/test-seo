@@ -44,7 +44,8 @@ export default {
     // https://go.nuxtjs.dev/pwa
     "@nuxtjs/pwa",
     "@nuxtjs/google-analytics",
-    "@nuxtjs/sitemap"
+    "@nuxtjs/sitemap",
+    "nuxt-seo"
   ],
   googleAnalytics: {
     id: "{YOUR GOOGLE ANALYTICS ID}",

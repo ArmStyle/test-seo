@@ -62,7 +62,7 @@ export default {
       "/test",
       "/test2",
       "/test3",
-      "/manga",
+      "/mangaa",
       "/cartoon/1613749319",
       "/user/:id"
     ].map(route => ({

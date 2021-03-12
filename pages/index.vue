@@ -87,37 +87,37 @@ export default {
   },
   head() {
     return {
-      title: `new data`,
+      title: `change index`,
       meta: [
         {
           hid: 'description',
-          name: 'description',
-          content: `new index`
+          name: 'description' ,
+          content: `change index description`
         },
         {
           hid: 'twitter:card',
           name: 'twitter:card',
-          content: `new index`
+          content: `change index`
         },
         {
           hid: 'twitter:title',
           name: 'twitter:title',
-          content: `new index`
+          content: `twitter change index`
         },
         {
           hid: 'twitter:description',
           name: 'twitter:description',
-          content: `new index description`
+          content: `twitter change index description`
         },
         {
           hid: 'og:title',
           name: 'og:title',
-          content: `new index`
+          content: `og change index`
         },
         {
           hid: 'og:description',
           name: 'og:description',
-          content: `new index description`
+          content: `og change index description`
         }
       ]
     }

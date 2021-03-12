@@ -53,7 +53,7 @@ export default {
         {
           hid: 'twitter:image',
           name: 'twitter:image',
-          content: `/2.png`
+          content: `/2.jpg`
         },
         {
           hid: 'description',
@@ -63,7 +63,7 @@ export default {
         {
           hid: 'og:image',
           property: 'og:image',
-          content: `/1.png`
+          content: `/1.jpg`
         },
         {
           hid: 'og:site_name',

@@ -41,7 +41,7 @@ export default {
         {
           hid: 'twitter:title',
           name: 'twitter:title',
-          content: `มังงะ `
+          content: `มังงะ`
         },
         {
           hid: 'twitter:description',
@@ -56,18 +56,18 @@ export default {
         {
           hid: 'og:title',
           name: 'og:title',
-          content: `มังงะ  `
+          content: `test og:title`
         },
         {
           hid: 'og:description',
           name: 'og:description',
-          content: `อ่านมังงะแปลไทย และ อื่นๆอีกมากมาย`
+          content: `og description`
         },
         {
           hid: 'og:image',
           property: 'og:image',
-          content: `/1.png`
-        },
+          content: `https://yt3.ggpht.com/ytc/AAUvwngy0NltT27fyj2nsoYFORfbmNavo7x0iN1l_PGs3w=s900-c-k-c0x00ffffff-no-rj`
+        }
       ]
     }
   }

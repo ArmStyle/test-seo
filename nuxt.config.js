@@ -3,7 +3,6 @@ import colors from "vuetify/es5/util/colors";
 export default {
   // Global page headers: https://go.nuxtjs.dev/config-head
   head: {
-    title: "Crypto Ticker",
     meta: [
       { charset: "utf-8" },
       {
@@ -44,8 +43,7 @@ export default {
     // https://go.nuxtjs.dev/pwa
     "@nuxtjs/pwa",
     "@nuxtjs/google-analytics",
-    "@nuxtjs/sitemap",
-    "nuxt-seo"
+    "@nuxtjs/sitemap"
   ],
   googleAnalytics: {
     id: "{YOUR GOOGLE ANALYTICS ID}",
@@ -72,17 +70,6 @@ export default {
       priority: 1,
       lastmodISO: new Date().toISOString().split("T")[0]
     }))
-    // sitemaps: [
-    //   {
-    //     path: "/user/:id",
-    //     exclude: [],
-    //     routes: async () => {
-    //       let apiUrl = "https://jsonplaceholder.typicode.com/todos/"; // or API url
-    //       const { data } = await axios.get(`${apiUrl}`);
-    //       return data.data.map(v => `/${v.id}`);
-    //     }
-    //   }
-    // ]
   },
 
   // Axios module configuration: https://go.nuxtjs.dev/config-axios

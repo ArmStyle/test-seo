@@ -7,22 +7,6 @@
 
 <script>
 export default {
-  // head: function () {
-  //   return this.$seo({
-  //     title: 'head มังงะ',
-  //     description: 'head อ่านมังงะแปลไทย และ อื่นๆอีกมากมาย',
-  //     canonical: '/mangaa',
-  //     image: '/1.jpg',
-  //     og: {
-  //       title: 'og มังงะ',
-  //       description: 'og อ่านมังงะแปลไทย และ อื่นๆอีกมากมาย'
-  //     },
-  //     twitter: {
-  //       title: 'twitter มังงะ',
-  //       description: 'twitter อ่านมังงะแปลไทย และ อื่นๆอีกมากมาย'
-  //     }
-  //   })
-  // }
   head() {
     return {
       title: `มังงะ`,

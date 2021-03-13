@@ -34,7 +34,7 @@ export default {
         {
           hid: 'og:title',
           name: 'og:title',
-          content: `hhhhhhhhhhhhhhhhhhh`
+          content: `asdsadsad`
         },
         {
           hid: 'og:description',

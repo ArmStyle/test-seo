@@ -27,37 +27,47 @@ export default {
   },
   head() {
     return {
-      title: `aaaaaaaaaaaaaaa`,
+      title: `ผปแปผแปผแปผแปผแ`,
       meta: [
         {
           hid: 'description',
           name: 'description',
-          content: `ssssssssssssss`
+          content: `กกกกกกกกกกกกกกกกกกกกกกก`
         },
         {
           hid: 'twitter:card',
           name: 'twitter:card',
-          content: `ddddddddddddddddddd`
+          content: `twittertwittertwittertwitter`
         },
         {
           hid: 'twitter:title',
           name: 'twitter:title',
-          content: `fffffffffffffffffffff`
+          content: `twitter:title`
         },
         {
           hid: 'twitter:description',
           name: 'twitter:description',
-          content: `gggggggggggggggggggggggg`
+          content: `twitter:description`
+        },
+        {
+          hid: 'twitter:image',
+          name: 'twitter:image',
+          content: `/1.png`
         },
         {
           hid: 'og:title',
           name: 'og:title',
-          content: `hhhhhhhhhhhhhhhhhhh`
+          content: `og:title`
         },
         {
           hid: 'og:description',
           name: 'og:description',
-          content: `jjjjjjjjjjjjjjjjjjjj`
+          content: `og:description`
+        },
+        {
+          hid: 'og:image',
+          name: 'og:image',
+          content: `/2.png`
         }
       ]
     }

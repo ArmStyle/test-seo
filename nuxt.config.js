@@ -86,9 +86,6 @@ export default {
     manifest: {
       lang: "en"
     },
-    icon: {
-      cacheDir: "/icon.png"
-    }
   },
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify

@@ -34,7 +34,7 @@ export default {
         {
           hid: 'twitter:description',
           name: 'twitter:description',
-          content: `description`
+          content: `twitter twitter twitter twitter twitter twitter twitter twitter description`
         },
         {
           hid: 'twitter:image',
@@ -49,12 +49,12 @@ export default {
         {
           hid: 'og:description',
           name: 'og:description',
-          content: `description`
+          content: `ogogogogogogogogogogogogogogogogogogogogogogogog description`
         },
         {
           hid: 'og:image',
           property: 'og:image',
-          content: this.exchange.thumbnail
+          content: `https://yt3.ggpht.com/ytc/AAUvwngy0NltT27fyj2nsoYFORfbmNavo7x0iN1l_PGs3w=s900-c-k-c0x00ffffff-no-rj`
         }
       ]
     }

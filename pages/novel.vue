@@ -1,15 +1,21 @@
 <template>
   <v-layout wrap class="mt-9 mx-0">
-    <v-flex xs12 sm12 md12 lg9 class="py-3">มังงะ</v-flex>
+    <v-flex xs12 sm12 md12 lg9 class="py-3">นิยาย=b</v-flex>
     <v-flex xs12 sm12 md12 lg3 class="py-3"></v-flex>
   </v-layout>
 </template>
 
 <script>
+// import myFunc from '../../js/myFunction.js'
 export default {
+  data() {
+    return {
+      // myFunc,
+    }
+  },
   head() {
     return {
-      title: `มังงะ`,
+      title: `นิยาย`,
       meta: [
         { charset: 'utf-8' },
         {
@@ -27,12 +33,12 @@ export default {
         {
           hid: 'twitter:title',
           name: 'twitter:title',
-          content: `มังงะ`
+          content: `นิยาย`
         },
         {
           hid: 'twitter:description',
           name: 'twitter:description',
-          content: `อ่านมังงะแปลไทย และอื่นๆอีกมากมาย เว็บอ่านการ์ตูนออนไลน์ | 7toons`
+          content: `อ่านนิยายแปลไทย และอื่นๆอีกมากมาย เว็บอ่านการ์ตูนออนไลน์ | 7toons`
         },
         {
           hid: 'twitter:image',
@@ -42,7 +48,7 @@ export default {
         {
           hid: 'description',
           name: 'description',
-          content: `อ่านมังงะแปลไทย และอื่นๆอีกมากมาย เว็บอ่านการ์ตูนออนไลน์ | 7toons`
+          content: `อ่านนิยายแปลไทย และอื่นๆอีกมากมาย เว็บอ่านการ์ตูนออนไลน์ | 7toons`
         },
         {
           hid: 'og:image',
@@ -52,17 +58,17 @@ export default {
         {
           hid: 'og:site_name',
           name: 'og:site_name',
-          content: `มังงะ`
+          content: `นิยาย`
         },
         {
           hid: 'og:title',
           name: 'og:title',
-          content: `มังงะ`
+          content: `นิยาย`
         },
         {
           hid: 'og:description',
           name: 'og:description',
-          content: `อ่านมังงะแปลไทย และอื่นๆอีกมากมาย เว็บอ่านการ์ตูนออนไลน์ | 7toons`
+          content: `อ่านนิยายแปลไทย และอื่นๆอีกมากมาย เว็บอ่านการ์ตูนออนไลน์ | 7toons`
         }
       ]
     }

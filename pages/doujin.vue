@@ -41,7 +41,7 @@ export default {
         {
           hid: 'twitter:description',
           name: 'twitter:description',
-          content: `อ่านโดจินแปลไทย และ อื่นๆอีกมากมาย เว็บอ่านการ์ตูนออนไลน์ | 7toons`,
+          content: `อ่านโดจินแปลไทย และ อื่นๆอีกมากมาย เว็บอ่านการ์ตูนออนไลน์ - 7toons`,
         },
         {
           hid: 'twitter:image',
@@ -51,7 +51,7 @@ export default {
         {
           hid: 'description',
           name: 'description',
-          content: `อ่านโดจินแปลไทย และ อื่นๆอีกมากมาย เว็บอ่านการ์ตูนออนไลน์ | 7toons`,
+          content: `อ่านโดจินแปลไทย และ อื่นๆอีกมากมาย เว็บอ่านการ์ตูนออนไลน์ - 7toons`,
         },
         {
           hid: 'og:image',
@@ -71,7 +71,7 @@ export default {
         {
           hid: 'og:description',
           name: 'og:description',
-          content: `อ่านโดจินแปลไทย และ อื่นๆอีกมากมาย เว็บอ่านการ์ตูนออนไลน์ | 7toons`,
+          content: `อ่านโดจินแปลไทย และ อื่นๆอีกมากมาย เว็บอ่านการ์ตูนออนไลน์ - 7toons`,
         },
       ],
     }

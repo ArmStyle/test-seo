@@ -5,7 +5,7 @@
       <nuxt-link :to="`/user/${text}`">user {{ text }}</nuxt-link>
       <nuxt-link :to="`/test`">to test</nuxt-link>
       <nuxt-link :to="`/test2`">to test2</nuxt-link>
-      <nuxt-link :to="`/mangaa`">manga</nuxt-link>
+      <nuxt-link :to="`/manga`">manga</nuxt-link>
       <img src="/v.png" alt="Vuetify.js" class="mb-5" />
       <blockquote class="blockquote">
         &#8220;First, solve the problem. Then, write the code.&#8221;

@@ -1,4 +1,4 @@
-# test-seo
+# heroku-seo
 
 ## Build Setup
 

@@ -14,19 +14,19 @@ export default {
     ],
     link: [
       { rel: "icon", type: "image/x-icon", href: "/icon.png" },
-      {
-        rel: "stylesheet",
+       {
+        rel: 'stylesheet',
         href:
-          "https://fonts.googleapis.com/css?family=Roboto:300,400,500,700|Material+Icons"
-      }
+          'https://fonts.googleapis.com/css2?family=Kanit:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap',
+      },
     ]
   },
 
   // Global CSS: https://go.nuxtjs.dev/config-css
-  css: [],
+  css: ['~/styles/index.css',],
 
   // Plugins to run before rendering page: https://go.nuxtjs.dev/config-plugins
-  plugins: [],
+  plugins: ['~/plugins/format.js',],
 
   // Auto import components: https://go.nuxtjs.dev/config-components
   components: true,
@@ -44,11 +44,15 @@ export default {
     // https://go.nuxtjs.dev/pwa
     "@nuxtjs/pwa",
     "@nuxtjs/google-analytics",
+    "@nuxtjs/google-adsense",
     "@nuxtjs/sitemap"
   ],
   googleAnalytics: {
-    id: "{YOUR GOOGLE ANALYTICS ID}",
+    id: "UA-188445235-1",
     dev: false
+  },
+  googleAdsense: {
+    id: 'ca-pub-2735809627790100',
   },
   sitemap: {
     path: "/sitemap.xml",
@@ -66,7 +70,10 @@ export default {
       "/test",
       "/test2",
       "/test3",
-      "/cartoon/1613749319",
+      '/About-Us',
+      '/Privacy',
+      "/cartoon/:title",
+      "/cartoon/:title/:ep",
       "/user/:id"
     ].map(route => ({
       url: route,
@@ -90,21 +97,24 @@ export default {
 
   // Vuetify module configuration: https://go.nuxtjs.dev/config-vuetify
   vuetify: {
-    customVariables: ["~/assets/variables.scss"],
+    customVariables: ['~/assets/variables.scss'],
     theme: {
-      dark: true,
+      dark: false,
       themes: {
+        light: {
+          primary: colors.red,
+        },
         dark: {
-          primary: colors.blue.darken2,
+          primary: colors.red,
           accent: colors.grey.darken3,
           secondary: colors.amber.darken3,
           info: colors.teal.lighten1,
           warning: colors.amber.base,
           error: colors.deepOrange.accent4,
-          success: colors.green.accent3
-        }
-      }
-    }
+          success: colors.green.accent3,
+        },
+      },
+    },
   },
 
   // Build Configuration: https://go.nuxtjs.dev/config-build

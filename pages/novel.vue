@@ -1,16 +1,23 @@
 <template>
   <v-layout wrap class="mt-9 mx-0">
-    <v-flex xs12 sm12 md12 lg9 class="py-3">นิยาย=b</v-flex>
-    <v-flex xs12 sm12 md12 lg3 class="py-3"></v-flex>
+    <v-flex xs12 sm12 md12 lg9 class="py-3">
+      <MainCard
+        :title="'นิยาย ' + myFunc.fotmatCategory($store.state.category) + ' อัพเดตล่าสุด !'"
+      />
+      <Loadmore />
+    </v-flex>
+    <v-flex xs12 sm12 md12 lg3 class="py-3">
+      <SideCard />
+    </v-flex>
   </v-layout>
 </template>
 
 <script>
-// import myFunc from '../../js/myFunction.js'
+import myFunc from '../js/myFunction.js'
 export default {
   data() {
     return {
-      // myFunc,
+      myFunc
     }
   },
   head() {

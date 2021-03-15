@@ -1,14 +1,14 @@
 <template>
   <div v-if="loading" class="loading-page">
-    <!-- <v-img src="/loading.gif" alt="loading" class="image" /> -->
-    <div class="sk-chase">
+    <v-img src="/loading.gif" alt="loading" class="image" />
+    <!-- <div class="sk-chase">
       <div class="sk-chase-dot"></div>
       <div class="sk-chase-dot"></div>
       <div class="sk-chase-dot"></div>
       <div class="sk-chase-dot"></div>
       <div class="sk-chase-dot"></div>
       <div class="sk-chase-dot"></div>
-    </div>
+    </div> -->
   </div>
 </template>
 

@@ -54,6 +54,7 @@ export default {
       title: 'Vuetify.js',
       fixed: false,
       loading: false,
+      prevScrollpos: 0,
 
       fab: false
     }
@@ -79,11 +80,24 @@ export default {
       })
       this.$store.commit('SET_LIST_CATEGORY', listCategory.data)
     } catch (error) {}
-    const listElm = document.querySelector('#infinite-list')
     if (!this.listCartoonsPopular || this.listCartoonsPopular.length == 0) {
       let listCartoons = await this.$axios.get(`/cartoon/latest?limit=8`, {})
       this.$store.commit('SET_LIST_CARTOONS_POPULAR', listCartoons.data)
     }
+
+    const listElm = document.querySelector('#infinite-list')
+    listElm.addEventListener('scroll', e => {
+      this.fab = listElm.scrollTop > 20
+      console.log('tes', this.prevScrollpos, listElm.scrollTop)
+      if (this.prevScrollpos > listElm.scrollTop) {
+        document.getElementById('navbar').style.top = '0'
+        document.getElementById('navbar').style.transition = 'top 0.3s'
+      } else {
+        document.getElementById('navbar').style.top = '-112px'
+        document.getElementById('navbar').style.transition = 'top 0.3s'
+      }
+      this.prevScrollpos = listElm.scrollTop
+    })
   },
   methods: {
     toTop() {

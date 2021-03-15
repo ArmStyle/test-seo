@@ -91,26 +91,24 @@ export default {
   props: { title: String },
   computed: {
     ...mapState({
-      listCartoons: (state) => state.listCartoons,
-    }),
+      listCartoons: state => state.listCartoons
+    })
   },
   methods: {
     setEp(ep) {
-      let scroll = document.querySelector('#infinite-list')
-      scroll.scrollTop = 0
+      this.$vuetify.goTo(0)
       localStorage.setItem('cartoonEp', ep.id)
     },
     setCartoon(cartoon) {
-      let scroll = document.querySelector('#infinite-list')
-      scroll.scrollTop = 0
+      this.$vuetify.goTo(0)
       localStorage.setItem('cartoonId', cartoon.id)
       this.$store.commit('SET_CARTOON', cartoon)
 
       if (cartoon.genre == 'doujin') {
         localStorage.setItem('cartoonEp', cartoon.last_two_ep[0].id)
       }
-    },
-  },
+    }
+  }
 }
 </script>
 

@@ -20,8 +20,7 @@ export default {
   },
   methods: {
     async getCartoonByGenre() {
-      let scroll = document.querySelector('#infinite-list')
-      scroll.scrollTop = 0
+      this.$vuetify.goTo(0)
       try {
         let api =
           `/cartoon/filter?limit=20&genre=` + this.route.replace('/', '')

@@ -1,6 +1,6 @@
 <template>
   <div class="nav-center">
-    <v-app-bar :clipped-left="clipped" fixed app class="navbar">
+    <v-app-bar :clipped-left="clipped" fixed app class="navbar" id="navbar">
       <!-- destop -->
       <div id="nav-logo" name="index" @click="setGenre('index')">
         <nuxt-link to="/" class="pa-0 logo-destop">
@@ -273,7 +273,7 @@ export default {
     return {
       searchObj: {
         value: '',
-        text: '',
+        text: ''
       },
       search: '',
 
@@ -285,14 +285,14 @@ export default {
           title: 'หน้าแรก',
           route: '/',
           active: 'index',
-          name: 'index',
-        },
+          name: 'index'
+        }
       ],
       cruds: [
         ['Create dsad;lksa;ldksa;ldksa;ld', 'mdi-plus-outline'],
         ['Read', 'mdi-file-outline'],
         ['Update', 'mdi-update'],
-        ['Delete', 'mdi-delete'],
+        ['Delete', 'mdi-delete']
       ],
       clipped: false,
       rightDrawer: false,
@@ -307,15 +307,15 @@ export default {
         'mdi-emoticon-happy',
         'mdi-emoticon-neutral',
         'mdi-emoticon-sad',
-        'mdi-emoticon-tongue',
-      ],
+        'mdi-emoticon-tongue'
+      ]
     }
   },
 
   computed: {
     ...mapState({
-      genre: (state) => state.genre,
-      category: (state) => state.category,
+      genre: state => state.genre,
+      category: state => state.category
     }),
     tab: {
       get() {
@@ -325,21 +325,13 @@ export default {
         if (typeof newVal == 'number') {
           this.$store.commit('SET_TAB', newVal)
         } else {
-          this.$store.commit(
-            'SET_TAB',
-            this.$store.state.listCategoryDoujin.indexOf(newVal)
-          )
+          this.$store.commit('SET_TAB', this.$store.state.listCategoryDoujin.indexOf(newVal))
         }
-      },
-    },
-    
+      }
+    }
   },
   mounted() {
-    if (
-      ['index', 'manga', 'novel', 'doujinshi', 'doujin'].includes(
-        this.$route.name
-      )
-    ) {
+    if (['index', 'manga', 'novel', 'doujinshi', 'doujin'].includes(this.$route.name)) {
       this.$store.commit('SET_GENRE', this.$route.name)
     } else {
       this.$store.commit('SET_GENRE', localStorage.getItem('genre'))
@@ -349,7 +341,7 @@ export default {
   methods: {
     closeRightDrawer(route) {
       this.$router.replace({
-        path: route,
+        path: route
       })
       this.rightDrawer = false
     },
@@ -374,8 +366,7 @@ export default {
     async getListCartoon() {
       this.toTop()
       let genre = this.$store.state.genre
-      let category =
-        this.$store.state.category != 'all' ? this.$store.state.category : null
+      let category = this.$store.state.category != 'all' ? this.$store.state.category : null
       let listCartoons
       let api
       if (['title', 'title-ep'].includes(this.$route.name)) return
@@ -404,18 +395,12 @@ export default {
       } else {
         try {
           let api =
-            `/cartoon/filter?limit=20&` +
-            (genre ? 'genre=' + genre : '') +
-            (genre && category ? '&' : '') +
-            (category ? 'category=' + category : '')
+            `/cartoon/filter?limit=20&` + (genre ? 'genre=' + genre : '') + (genre && category ? '&' : '') + (category ? 'category=' + category : '')
 
           listCartoons = await this.$axios.get(api, {})
           this.$store.commit('SET_LIST_CARTOONS', listCartoons.data)
           if (listCartoons.data.LastEvaluatedKey) {
-            this.$store.commit(
-              'SET_LASTEVALUATEDKEY',
-              listCartoons.data.LastEvaluatedKey
-            )
+            this.$store.commit('SET_LASTEVALUATEDKEY', listCartoons.data.LastEvaluatedKey)
           } else {
             this.$store.commit('SET_LASTEVALUATEDKEY', null)
           }
@@ -423,21 +408,17 @@ export default {
       }
     },
     toTop() {
-      let scroll = document.querySelector('#infinite-list')
-      scroll.scrollTop = 0
+      this.$vuetify.goTo(0)
     },
     onSearch() {
       let path = ''
-      if (
-        this.search.genre == 'doujin' &&
-        this.search.amount_of_episodes == 1
-      ) {
+      if (this.search.genre == 'doujin' && this.search.amount_of_episodes == 1) {
         path = '/' + this.search.id.replace('CT', '') + '/1'
       } else {
         path = '/' + this.search.id.replace('CT', '')
       }
       this.$router.replace({
-        path: path,
+        path: path
       })
 
       this.showSearch = false
@@ -459,8 +440,8 @@ export default {
     },
     clearMessage() {
       this.message = ''
-    },
-  },
+    }
+  }
 }
 </script>
 
@@ -468,10 +449,7 @@ export default {
 .v-application--is-ltr .v-list-group--sub-group .v-list-group__header {
   padding-left: 16px;
 }
-.v-application--is-ltr
-  .v-list-group--no-action.v-list-group--sub-group
-  > .v-list-group__items
-  > .v-list-item {
+.v-application--is-ltr .v-list-group--no-action.v-list-group--sub-group > .v-list-group__items > .v-list-item {
   padding-left: 32px;
 }
 </style>

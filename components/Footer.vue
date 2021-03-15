@@ -25,8 +25,7 @@ export default {
   }),
   methods: {
     toTop() {
-      let scroll = document.querySelector('#infinite-list')
-      scroll.scrollTop = 0
+      this.$vuetify.goTo(0)
     },
     goToRoute(data) {
       this.toTop()

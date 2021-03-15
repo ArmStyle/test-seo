@@ -1,69 +1,65 @@
 <template>
-<v-container style="padding: 0" class="readcartoon">
-  <div class="pa-3">
-    <h3>
-      กำลังอ่าน {{ this.cartoon.title }}
-      {{ cartoon.genre !== 'doujin' ? ` ตอนที่ ${$route.params.ep}` : `` }}
-    </h3>
-  </div>
-  <div v-for="(item, i) in readCartoon.pages" :key="i">
-    <v-img :src="item.url" height="100%" class="no-radius"></v-img>
-  </div>
-  <br />
-  <v-row class="pa-3 mx-auto" justify="center" style="max-width: 800px">
-    <v-btn
-      class="next_prev_btn"
-      v-if="readCartoon.prev_episode"
-      color="primary"
-      @click="prevEpisode(readCartoon.prev_episode)"
-    >ตอนก่อนหน้า</v-btn>
-    <v-spacer></v-spacer>
-    <v-btn
-      class="next_prev_btn"
-      v-if="readCartoon.next_episode"
-      color="primary"
-      @click="nextEpisode(readCartoon.next_episode)"
-    >ตอนต่อไป</v-btn>
-  </v-row>
+  <v-container style="padding: 0" class="readcartoon">
+    <div class="pa-3">
+      <h3>
+        กำลังอ่าน {{ this.cartoon.title }}
+        {{ cartoon.genre !== 'doujin' ? ` ตอนที่ ${$route.params.ep}` : `` }}
+      </h3>
+    </div>
+    <div v-for="(item, i) in readCartoon.pages" :key="i">
+      <v-img :src="item.url" height="100%" class="no-radius"></v-img>
+    </div>
+    <br />
+    <v-row class="pa-3 mx-auto" justify="center" style="max-width: 800px">
+      <v-btn
+        class="next_prev_btn"
+        v-if="readCartoon.prev_episode"
+        color="primary"
+        @click="prevEpisode(readCartoon.prev_episode)"
+      >ตอนก่อนหน้า</v-btn>
+      <v-spacer></v-spacer>
+      <v-btn
+        class="next_prev_btn"
+        v-if="readCartoon.next_episode"
+        color="primary"
+        @click="nextEpisode(readCartoon.next_episode)"
+      >ตอนต่อไป</v-btn>
+    </v-row>
 
-  <v-layout row>
-    <v-flex xs12 sm12 md12 lg9 class="pa-3 text-center">
-      <html>
-        <body>
-          <div id="fb-root"></div>
-          <script
-            async
-            defer
-            crossorigin="anonymous"
-            src="https://connect.facebook.net/th_TH/sdk.js#xfbml=1&version=v9.0"
-            nonce="CuXWLO7p"
-          ></script>
-          <div
-            class="fb-comments"
-            :data-href="'https://7toons.com/' +
+    <v-row>
+      <v-col cols="12" lg="9" class="pa-3 text-center">
+        <div id="fb-root"></div>
+        <script
+          async
+          defer
+          crossorigin="anonymous"
+          src="https://connect.facebook.net/th_TH/sdk.js#xfbml=1&version=v9.0"
+          nonce="CuXWLO7p"
+        ></script>
+        <div
+          class="fb-comments"
+          :data-href="'https://7toons.com/cartoon' +
             $route.params.title +
             '/' +
             $route.params.ep"
-            data-width="100%"
-            data-numposts="10"
-            data-lazy
-            data-mobile
-          ></div>
-        </body>
-      </html>
-    </v-flex>
-    <v-flex xs12 sm12 md12 lg3 class="py-3">
-      <SideCard />
-    </v-flex>
-  </v-layout>
-</v-container>
+          data-width="100%"
+          data-numposts="10"
+          data-lazy
+          data-mobile
+        ></div>
+      </v-col>
+      <v-col cols="12" lg="3" class="py-3">
+        <SideCard />
+      </v-col>
+    </v-row>
+  </v-container>
 </template>
 
 <script>
 import { mapState } from 'vuex'
 
 export default {
-  async asyncData({ params, $axios, store }) {
+  async asyncData({ params, $axios }) {
     let cartoonId = 'CT' + params.title
     // หา detail cartoon
     let getCartoon = await $axios.get(`/cartoon/` + cartoonId, {})

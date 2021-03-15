@@ -80,26 +80,24 @@ import { mapState } from 'vuex'
 export default {
   computed: {
     ...mapState({
-      listCartoonsPopular: (state) => state.listCartoonsPopular,
-    }),
+      listCartoonsPopular: state => state.listCartoonsPopular
+    })
   },
   methods: {
     setEp(ep) {
-      let scroll = document.querySelector('#infinite-list')
-      scroll.scrollTop = 0
+      this.$vuetify.goTo(0)
       localStorage.setItem('cartoonEp', ep.id)
     },
     setCartoon(cartoon) {
-      let scroll = document.querySelector('#infinite-list')
-      scroll.scrollTop = 0
+      this.$vuetify.goTo(0)
       localStorage.setItem('cartoonId', cartoon.id)
       this.$store.commit('SET_CARTOON', cartoon)
 
       if (cartoon.genre == 'doujin') {
         localStorage.setItem('cartoonEp', cartoon.last_two_ep[0].id)
       }
-    },
-  },
+    }
+  }
 }
 </script>
 

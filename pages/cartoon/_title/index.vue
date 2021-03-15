@@ -140,7 +140,7 @@ export default {
     let getEpisodes = await ctx.$axios.get('/episode?cartoon_id=' + cartoonId, {})
     return { getCartoon: getCartoon.data, getEpisodes: getEpisodes.data }
   },
-   head() {
+  head() {
     return {
       title: `${this.getCartoon.title}`,
       meta: [
@@ -148,56 +148,56 @@ export default {
         {
           hid: 'viewport',
           name: 'viewport',
-          content: 'width=device-width, initial-scale=1',
+          content: 'width=device-width, initial-scale=1'
         },
         {
           hid: 'twitter:card',
           name: 'twitter:card',
-          content: 'read cartoon ',
+          content: 'read cartoon '
         },
         { hid: 'twitter:site', name: 'twitter:site', content: '@7toons' },
         { hid: 'twitter:creator', name: 'twitter:creator', content: '@7toons' },
         {
           hid: 'twitter:title',
           name: 'twitter:title',
-          content: `${this.getCartoon.title}`,
+          content: `${this.getCartoon.title}`
         },
         {
           hid: 'twitter:description',
           name: 'twitter:description',
-          content: `${this.getCartoon.title} เว็บอ่านการ์ตูนออนไลน์ การ์ตูนแปลไทย การ์ตูนล่าสุด อ่านการ์ตูนบน Ipad Iphone Android ได้ง่ายๆ ที่นี่เลย 7toons.com`,
+          content: `${this.getCartoon.title} เว็บอ่านการ์ตูนออนไลน์ การ์ตูนแปลไทย การ์ตูนล่าสุด อ่านการ์ตูนบน Ipad Iphone Android ได้ง่ายๆ ที่นี่เลย 7toons.com`
         },
         {
           hid: 'twitter:image',
           name: 'twitter:image',
-          content: this.getCartoon.thumbnail,
+          content: this.getCartoon.thumbnail
         },
         {
           hid: 'description',
           name: 'description',
-          content: `${this.getCartoon.title} เว็บอ่านการ์ตูนออนไลน์ การ์ตูนแปลไทย การ์ตูนล่าสุด อ่านการ์ตูนบน Ipad Iphone Android ได้ง่ายๆ ที่นี่เลย 7toons.com`,
+          content: `${this.getCartoon.title} เว็บอ่านการ์ตูนออนไลน์ การ์ตูนแปลไทย การ์ตูนล่าสุด อ่านการ์ตูนบน Ipad Iphone Android ได้ง่ายๆ ที่นี่เลย 7toons.com`
         },
         {
           hid: 'og:image',
           property: 'og:image',
-          content: this.getCartoon.thumbnail,
+          content: this.getCartoon.thumbnail
         },
         {
           hid: 'og:site_name',
           name: 'og:site_name',
-          content: `${this.getCartoon.title}`,
+          content: `${this.getCartoon.title}`
         },
         {
           hid: 'og:title',
           name: 'og:title',
-          content: `${this.getCartoon.title}`,
+          content: `${this.getCartoon.title}`
         },
         {
           hid: 'og:description',
           name: 'og:description',
-          content: `${this.getCartoon.title} เว็บอ่านการ์ตูนออนไลน์ การ์ตูนแปลไทย การ์ตูนล่าสุด อ่านการ์ตูนบน Ipad Iphone Android ได้ง่ายๆ ที่นี่เลย 7toons.com`,
-        },
-      ],
+          content: `${this.getCartoon.title} เว็บอ่านการ์ตูนออนไลน์ การ์ตูนแปลไทย การ์ตูนล่าสุด อ่านการ์ตูนบน Ipad Iphone Android ได้ง่ายๆ ที่นี่เลย 7toons.com`
+        }
+      ]
     }
   },
 
@@ -214,8 +214,8 @@ export default {
     })
   },
   async mounted() {
+    this.$vuetify.goTo(0)
     this.getCartoon.category = await this.checkForDuplicates(this.getCartoon.category)
-    // document.querySelector('#infinite-list').scrollTop = 0
     this.$store.commit('SET_CARTOON', this.getCartoon)
     this.$store.commit('SET_CARTOON_EP', this.getEpisodes)
     // this.$nuxt.$loading.finish()

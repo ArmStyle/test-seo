@@ -64,7 +64,7 @@ export default {
   async mounted() {
     this.$nextTick(() => {
       this.$nuxt.$loading.start()
-      setTimeout(() => this.$nuxt.$loading.finish(), 500)
+      setTimeout(() => this.$nuxt.$loading.finish(), 200)
     })
     if (localStorage.getItem('theme') === 'true') {
       this.$vuetify.theme.dark = true

@@ -15,7 +15,7 @@
             @click="toTop()"
           ></v-img>
         </nuxt-link>
-        <!-- moblibe -->
+        <!-- mobile -->
         <nuxt-link to="/" class="pa-0 logo-mobile" v-if="!showSearch">
           <v-img
             :src="
@@ -408,7 +408,8 @@ export default {
       }
     },
     toTop() {
-      this.$vuetify.goTo(0)
+      let scroll = document.querySelector('#infinite-list')
+      scroll.scrollTop = 0
     },
     onSearch() {
       let path = ''

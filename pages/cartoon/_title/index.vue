@@ -214,7 +214,8 @@ export default {
     })
   },
   async mounted() {
-    this.$vuetify.goTo(0)
+    let scroll = document.querySelector('#infinite-list')
+    scroll.scrollTop = 0
     this.getCartoon.category = await this.checkForDuplicates(this.getCartoon.category)
     this.$store.commit('SET_CARTOON', this.getCartoon)
     this.$store.commit('SET_CARTOON_EP', this.getEpisodes)
@@ -250,7 +251,8 @@ export default {
       return valuesAlreadySeen
     },
     toTop() {
-      this.$vuetify.goTo(0)
+      let scroll = document.querySelector('#infinite-list')
+      scroll.scrollTop = 0
     },
     async getListCartoon() {
       this.toTop()

@@ -96,11 +96,13 @@ export default {
   },
   methods: {
     setEp(ep) {
-      this.$vuetify.goTo(0)
+      let scroll = document.querySelector('#infinite-list')
+      scroll.scrollTop = 0
       localStorage.setItem('cartoonEp', ep.id)
     },
     setCartoon(cartoon) {
-      this.$vuetify.goTo(0)
+      let scroll = document.querySelector('#infinite-list')
+      scroll.scrollTop = 0
       localStorage.setItem('cartoonId', cartoon.id)
       this.$store.commit('SET_CARTOON', cartoon)
 

@@ -16,27 +16,24 @@ export default {
   props: {
     title: String,
     route: String,
-    showAll: Boolean,
+    showAll: Boolean
   },
   methods: {
     async getCartoonByGenre() {
-      this.$vuetify.goTo(0)
+      let scroll = document.querySelector('#infinite-list')
+      scroll.scrollTop = 0
       try {
-        let api =
-          `/cartoon/filter?limit=20&genre=` + this.route.replace('/', '')
+        let api = `/cartoon/filter?limit=20&genre=` + this.route.replace('/', '')
         let listCartoons = await this.$axios.get(api, {})
         this.$store.commit('SET_LIST_CARTOONS', listCartoons.data)
         if (listCartoons.data.LastEvaluatedKey) {
-          this.$store.commit(
-            'SET_LASTEVALUATEDKEY',
-            listCartoons.data.LastEvaluatedKey
-          )
+          this.$store.commit('SET_LASTEVALUATEDKEY', listCartoons.data.LastEvaluatedKey)
         } else {
           this.$store.commit('SET_LASTEVALUATEDKEY', null)
         }
       } catch (error) {}
-    },
-  },
+    }
+  }
 }
 </script>
 

@@ -142,7 +142,8 @@ export default {
   },
   async created() {
     // this.$nuxt.$loading.start()
-    this.$vuetify.goTo(0)
+    let scroll = document.querySelector('#infinite-list')
+    scroll.scrollTop = 0
     this.$store.commit('SET_CARTOON', this.getCartoon)
     this.getEpisodeById(this.cartoonEp.id)
     // this.$nuxt.$loading.finish()

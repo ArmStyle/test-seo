@@ -3,13 +3,14 @@
     <v-card flat tile class="text-center" width="100%">
       <v-card-text>
         <v-btn v-for="(item, i) in icons" :key="i" class="mx-4" icon>
-          <v-icon size="24px" @click="goToRoute(item)">
-            {{ item.icon }}
-          </v-icon>
+          <v-icon size="24px" @click="goToRoute(item)">{{ item.icon }}</v-icon>
         </v-btn>
       </v-card-text>
 
-      <v-card-text> @ 2021 <strong>7TOONS Inc.</strong> </v-card-text>
+      <v-card-text>
+        @ 2021
+        <strong>7TOONS Inc.</strong>
+      </v-card-text>
     </v-card>
   </v-footer>
 </template>
@@ -20,12 +21,13 @@ export default {
     icons: [
       { icon: 'mdi-facebook', path: 'https://www.facebook.com/7toons' },
       { icon: 'mdi-police-badge', path: '/Privacy' },
-      { icon: 'mdi-information', path: '/About-Us' },
-    ],
+      { icon: 'mdi-information', path: '/About-Us' }
+    ]
   }),
   methods: {
     toTop() {
-      this.$vuetify.goTo(0)
+      let scroll = document.querySelector('#infinite-list')
+      scroll.scrollTop = 0
     },
     goToRoute(data) {
       this.toTop()
@@ -35,10 +37,10 @@ export default {
         return
       }
       this.$router.replace({
-        path: data.path,
+        path: data.path
       })
-    },
-  },
+    }
+  }
 }
 </script>
 

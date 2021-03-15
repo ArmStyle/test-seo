@@ -20,19 +20,19 @@
           <Ad />
 
           <!-- <adsbygoogle ad-slot="1364637074" ad-client="ca-pub-2735809627790100" /> -->
-          <v-lazy
+          <!-- <v-lazy
             v-model="isActive"
             :options="{
               threshold: .5
             }"
             min-height="200"
             transition="fade-transition"
-          >
-            <v-card elevation="0" class="card-container">
-              <nuxt class="pa-0 shadow" />
-            </v-card>
-          </v-lazy>
-          <adsbygoogle />
+          >-->
+          <v-card elevation="0" class="card-container">
+            <nuxt class="pa-0 shadow" />
+          </v-card>
+          <!-- </v-lazy> -->
+          <!-- <adsbygoogle /> -->
         </v-container>
       </v-main>
       <Footer />
@@ -41,20 +41,10 @@
 </template>
 
 <script>
-import myfunc from '../js/myFunction'
 export default {
-  head() {
-    return {
-      head: {
-        script: [
-          {
-            src: 'https://cdn.ampproject.org/v0/amp-ad-0.1.js',
-            custom_element: 'amp-ad',
-            async: true,
-          },
-        ],
-      },
-    }
+  async asyncData(ctx) {
+    let getSearchList = await ctx.$axios.get('/cartoon/search', {})
+    return { getSearchList: getSearchList.data }
   },
   data() {
     return {
@@ -65,19 +55,17 @@ export default {
       fixed: false,
       loading: false,
 
-      fab: false,
+      fab: false
     }
   },
   async created() {
-    let { data: getSearchList } = await this.$axios.get('/cartoon/search', {})
-    this.$store.commit('SET_SEARCH_LIST', getSearchList)
+    this.$store.commit('SET_SEARCH_LIST', this.getSearchList)
   },
   async mounted() {
     this.$nextTick(() => {
       this.$nuxt.$loading.start()
       setTimeout(() => this.$nuxt.$loading.finish(), 500)
     })
-
     if (localStorage.getItem('theme') === 'true') {
       this.$vuetify.theme.dark = true
     } else {
@@ -87,12 +75,10 @@ export default {
       let listCategory = await this.$axios.get(`/category`, {})
       listCategory.data.unshift({
         id: 'CA000000000',
-        name: 'all',
+        name: 'all'
       })
-
       this.$store.commit('SET_LIST_CATEGORY', listCategory.data)
     } catch (error) {}
-
     const listElm = document.querySelector('#infinite-list')
     if (!this.listCartoonsPopular || this.listCartoonsPopular.length == 0) {
       let listCartoons = await this.$axios.get(`/cartoon/latest?limit=8`, {})
@@ -103,7 +89,7 @@ export default {
     toTop() {
       let scroll = document.querySelector('#infinite-list')
       scroll.scrollTop = 0
-    },
-  },
+    }
+  }
 }
 </script>

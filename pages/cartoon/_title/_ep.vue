@@ -147,11 +147,11 @@ export default {
     }),
   },
   async created() {
-    this.$nuxt.$loading.start()
-    document.querySelector('#infinite-list').scrollTop = 0
+    // this.$nuxt.$loading.start()
+    // document.querySelector('#infinite-list').scrollTop = 0
     this.$store.commit('SET_CARTOON', this.getCartoon)
     this.getEpisodeById(this.cartoonEp.id)
-    this.$nuxt.$loading.finish()
+    // this.$nuxt.$loading.finish()
   },
   methods: {
     async getEpisodeById(id) {

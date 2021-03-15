@@ -215,10 +215,10 @@ export default {
   },
   async mounted() {
     this.getCartoon.category = await this.checkForDuplicates(this.getCartoon.category)
-    document.querySelector('#infinite-list').scrollTop = 0
+    // document.querySelector('#infinite-list').scrollTop = 0
     this.$store.commit('SET_CARTOON', this.getCartoon)
     this.$store.commit('SET_CARTOON_EP', this.getEpisodes)
-    this.$nuxt.$loading.finish()
+    // this.$nuxt.$loading.finish()
   },
   methods: {
     setCategory(genre, category) {

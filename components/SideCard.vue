@@ -16,8 +16,8 @@
             <nuxt-link
               :to="
                 item.genre !== 'doujin'
-                  ? '/cartoon/' + item.id.replace('CT', '')
-                  : '/cartoon/' + item.id.replace('CT', '') + '/1'
+                  ? '/' + item.id.replace('CT', '')
+                  : '/' + item.id.replace('CT', '') + '/1'
               "
             >
               <v-img
@@ -34,8 +34,8 @@
                 <nuxt-link
                   :to="
                     item.genre !== 'doujin'
-                      ? '/cartoon/' + item.id.replace('CT', '')
-                      : '/cartoon/' + item.id.replace('CT', '') + '/1'
+                      ? '/' + item.id.replace('CT', '')
+                      : '/' + item.id.replace('CT', '') + '/1'
                   "
                   class="card-title"
                 >
@@ -55,7 +55,7 @@
                 <div style="min-width: 200px" v-if="item.last_two_ep[0]">
                   <v-row v-for="(ep, i) in item.last_two_ep" :key="i" align="center">
                     <v-col cols="6" lg="5" @click="setEp(ep)">
-                      <nuxt-link :to="'/cartoon/' + item.id.replace('CT', '') + '/' + ep.episode">
+                      <nuxt-link :to="'/' + item.id.replace('CT', '') + '/' + ep.episode">
                         <v-btn depressed small rounded>
                           <h6>ตอนที่ {{ ep.episode }}</h6>
                         </v-btn>

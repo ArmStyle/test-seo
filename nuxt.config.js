@@ -72,8 +72,8 @@ export default {
       "/test3",
       '/About-Us',
       '/Privacy',
-      "/cartoon/:title",
-      "/cartoon/:title/:ep",
+      "/:title",
+      "/:title/:ep",
       "/user/:id"
     ].map(route => ({
       url: route,

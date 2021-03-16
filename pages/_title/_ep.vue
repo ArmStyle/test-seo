@@ -38,7 +38,7 @@
         ></script>
         <div
           class="fb-comments"
-          :data-href="'https://7toons.com/cartoon' +
+          :data-href="'https://7toons.com/' +
             $route.params.title +
             '/' +
             $route.params.ep"
@@ -156,13 +156,13 @@ export default {
     },
     prevEpisode(data) {
       this.$router.replace({
-        path: '/cartoon/' + this.cartoonId.replace('CT', '') + '/' + data.episode
+        path: '/' + this.cartoonId.replace('CT', '') + '/' + data.episode
       })
     },
     nextEpisode(data) {
       this.$store.commit('SET_EPISODE_ID', data.id)
       this.$router.replace({
-        path: '/cartoon/' + this.cartoonId.replace('CT', '') + '/' + data.episode
+        path: '/' + this.cartoonId.replace('CT', '') + '/' + data.episode
       })
     }
   }

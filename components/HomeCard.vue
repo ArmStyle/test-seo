@@ -18,8 +18,8 @@
             <nuxt-link
               :to="
                 item.genre !== 'doujin'
-                  ? '/cartoon/' + item.id.replace('CT', '')
-                  : '/cartoon/' + item.id.replace('CT', '') + '/1'
+                  ? '/' + item.id.replace('CT', '')
+                  : '/' + item.id.replace('CT', '') + '/1'
               "
               class="nuxt-link"
             >
@@ -33,8 +33,8 @@
               <nuxt-link
                 :to="
                   item.genre !== 'doujin'
-                    ? '/cartoon/' + item.id.replace('CT', '')
-                    : '/cartoon/' + item.id.replace('CT', '') + '/1'
+                    ? '/' + item.id.replace('CT', '')
+                    : '/' + item.id.replace('CT', '') + '/1'
                 "
                 class="card-title"
               >
@@ -63,7 +63,7 @@
                         <v-btn depressed small rounded>
                           <nuxt-link
                             :to="
-                              '/cartoon/' + item.id.replace('CT', '') + '/' + ep.episode
+                              '/' + item.id.replace('CT', '') + '/' + ep.episode
                             "
                           >
                             <p class="episode-label">ตอนที่ {{ ep.episode }}</p>
